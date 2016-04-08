@@ -18,6 +18,7 @@ public class Home extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	Data d = new Data();
 	private String invoer = ""; 
+	
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -27,7 +28,7 @@ public class Home extends HttpServlet {
     }
     
     private String myHtml(){
-    	d.addData();
+    	
     	return ""
     			+ ""
     			+ "<html>"
@@ -55,7 +56,7 @@ public class Home extends HttpServlet {
     
    private String getVoornaam(String s){
 	   if(d.arrKandidaat == null){
-  			d.addData();
+  			getArrayNaam();
    		}
 	   if(s==""){
     		return getArrayNaam();
@@ -75,6 +76,7 @@ public class Home extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
 		if(request.getParameter("firstname") != null){
 			invoer = request.getParameter("firstname");
    		}else{

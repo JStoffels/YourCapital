@@ -4,6 +4,10 @@ import java.util.ArrayList;
 
 public class Data {
 
+	public Data(){
+		addData();
+	}
+	
 	public ArrayList<Kandidaat> arrKandidaat = new ArrayList<Kandidaat>();
 
 	public void addData(){
