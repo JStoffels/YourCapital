@@ -53,15 +53,16 @@ public class Home extends HttpServlet {
     	return sb;
     }
     
-    private String getVoornaam(String s){
-    	if(s==""){
+   private String getVoornaam(String s){
+	   if(d.arrKandidaat == null){
+  			d.addData();
+   		}
+	   if(s==""){
     		return getArrayNaam();
     	}else if(s!=""){
     		for(Kandidaat k: d.arrKandidaat){
-    			if(s.equals(k.getNaam())){
+    			if(s.equals(k.getNaam().toString())){
     				return k.getNaam();
-    			}else{
-    				return "Invalid entry";
     			}
     		}
     	}
@@ -74,7 +75,11 @@ public class Home extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		invoer = request.getParameter("firstname");
+		if(request.getParameter("firstname") != null){
+			invoer = request.getParameter("firstname");
+   		}else{
+   			invoer = "";
+   		}
 		response.getWriter().append(myHtml());
 		
 	}
