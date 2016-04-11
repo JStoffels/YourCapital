@@ -25,51 +25,7 @@ public class Home extends HttpServlet {
     public Home() {
         super();
         // TODO Auto-generated constructor stub
-    }
-    
-    private String myHtml(){
-    	
-    	return ""
-    			+ ""
-    			+ "<html>"
-    			+ "<body>"
-    			+ "<p>Test kandidaat!</p>"
-    			+ "<p>"+getArrayNaam()+"</p>"
-    	    	+ "<form method=get>"
-    	    	+ "First Name: <br>"
-    	    	+ "<input type=text name=firstname><br>"
-    	    	+ "<br><input type=submit value=Search>"    
-    	    	+ "</form>"
-    	    	+ getVoornaam(invoer)
-    			+ "</body>"
-    			+ "</html>";
-    }
-
-    private String getArrayNaam(){
-
-    	String sb = "";
-    	for (int i =0; i < d.arrKandidaat.size(); i++){
-    		sb = sb.concat(d.arrKandidaat.get(i).getNaam() +"   " + d.arrKandidaat.get(i).getLeeftijd() +"<br>");    		
-    	}
-    	return sb;
-    }
-    
-   private String getVoornaam(String s){
-	   if(d.arrKandidaat == null){
-  			getArrayNaam();
-   		}
-	   if(s==""){
-    		return getArrayNaam();
-    	}else if(s!=""){
-    		for(Kandidaat k: d.arrKandidaat){
-    			if(s.equals(k.getNaam().toString())){
-    				return k.getNaam();
-    			}
-    		}
-    	}
-    	return "Invalid entry";
-    }
-    
+    }       
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -82,8 +38,14 @@ public class Home extends HttpServlet {
    		}else{
    			invoer = "";
    		}
-		response.getWriter().append(myHtml());
 		
+		request.setAttribute("LijstTotaal", d.getArrayTotaal());
+		//request.setAttribute("Voornaam", d.getResultaat(invoer));
+		request.setAttribute("getAge", d.getLeeftijd());
+		request.setAttribute("getNaam", d.getNaam());
+		//request.setAttribute("getSkills", d.getArrSkills());		
+		
+		request.getRequestDispatcher("WEB-INF/MainHtml.jsp").forward(request, response);
 	}
 	
 
