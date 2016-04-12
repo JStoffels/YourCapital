@@ -1,5 +1,7 @@
 package nl.jf.servlets;
 
+import java.util.ArrayList;
+
 import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
@@ -42,12 +44,16 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value="/home", method=RequestMethod.POST)
-	public String homeMvc(@RequestParam String naam, Model model, @RequestParam int leeftijd) {
+	public String homeMvc(Model model,
+						  @RequestParam String naam,  
+						  @RequestParam int leeftijd){
+		//				  @RequestParam ArrayList<String> arrSkills) {
 		model.addAttribute("LijstTotaal", d.getArrayTotaal());
 		model.addAttribute("getAge", d.getLeeftijd());
 		model.addAttribute("getNaam", d.getNaam());
 		model.addAttribute("naam", naam);
 		model.addAttribute("leeftijd", leeftijd);
+		//model.addAttribute("arrSkills", arrSkills);
 	
 		return "MainHtml";
 	}

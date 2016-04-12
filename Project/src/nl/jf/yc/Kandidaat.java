@@ -10,6 +10,16 @@ public class Kandidaat {
 	//@NotEmpty(message="Kan niet")
 	private String naam;
 	
+	private String skill;
+	
+	public String getSkill() {
+		return skill;
+	}
+
+	public void setSkill(String skill) {
+		this.skill = skill;
+	}
+
 	private int leeftijd;
 
 	private ArrayList<String> arrSkills = new ArrayList<String>();

@@ -18,7 +18,7 @@ public class Data extends Kandidaat {
 		arrKandidaat.add(new Kandidaat("Henk", 25, "Blaat", "Meh", "Behhh"));
 		arrKandidaat.add(new Kandidaat("Samantha", 31, "BBQ", "Lammetjes"));
 		arrKandidaat.add(new Kandidaat("Cesar", 26, "JAVA", "HTML", "PHP"));
-		arrKandidaat.add(new Kandidaat("Jaap", 22, "Scrum Master"));
+		arrKandidaat.add(new Kandidaat("Jaap", 25, "Scrum Master"));
 		arrKandidaat.add(new Kandidaat("Karel", 20, "Klaverjassen"));
 	}
 
