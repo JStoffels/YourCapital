@@ -16,9 +16,10 @@ public class Kandidaat {
 	public Kandidaat(String a, int b, String ... s){
 		this.voornaam = a;
 		this.leeftijd = b;
-		setArrSkills(s);		
+		setArrSkills(s);
 	}
 
+	//getters and setters
 	public String getNaam(){
 		return this.voornaam;
 	}
@@ -26,7 +27,11 @@ public class Kandidaat {
 	public int getLeeftijd(){
 		return this.leeftijd;
 	}
-
+	
+	public ArrayList<String> getArrSkills(){	
+		return this.arrSkills;
+	}
+	
 	public void setArrSkills(String ... s){
 		int x = 0;
 		for(String str : s){
@@ -35,9 +40,17 @@ public class Kandidaat {
 		}		
 	}
 
+	/*public void setArrSkills(String ... s){
+		int x = 0;
+		for(String str : s){
+			arrSkills.add(str);
+			x++;
+		}		
+	}*/
+
 	// TO STRING ALLEEN OP ARRAYLIST	
-	public ArrayList<String> getArrSkills(){	
+	/*public ArrayList<String> getArrSkills(){	
 		return this.arrSkills;
-	}
+	}*/
 
 }

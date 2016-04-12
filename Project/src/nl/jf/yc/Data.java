@@ -9,7 +9,7 @@ public class Data extends Kandidaat {
 	}
 
 	private ArrayList<Kandidaat> arrKandidaat = new ArrayList<Kandidaat>();
-	//public ArrayList<String> arrSkills = new ArrayList<String>();
+	//private ArrayList<String> arrSkills = new ArrayList<String>();
 
 	//voegt kandidaten toe aan array arrKandidaat
 	public void addData(){
@@ -19,35 +19,17 @@ public class Data extends Kandidaat {
 		arrKandidaat.add(new Kandidaat("Jaap", 22));
 		arrKandidaat.add(new Kandidaat("Karel", 20));
 	}
-	
+
 	public ArrayList<Kandidaat> getArrayTotaal(){
 		return this.arrKandidaat;
 	}
-	
-	
-	/*public String getArrayTotaal(){
-		String sb = "";
-		for (int i =0; i < arrKandidaat.size(); i++){
-			sb = sb.concat(arrKandidaat.get(i).getNaam() + "   " + arrKandidaat.get(i).getLeeftijd() + " " + arrKandidaat.get(i).getArrSkills()+"<br>");    		
-		}
-		
-		return sb;
-	}
-	
-	public String getArrayNaam(String s, int x){
-		String sb = "";
-		for (int i =0; i < arrKandidaat.size(); i++){
-			sb = sb.concat(arrKandidaat.get(i).getNaam() + " " + arrKandidaat.get(i).getLeeftijd() + "<br>");    		
-		}
-		return sb;
-	}  */  
 
 	/*public String getResultaat(String s){
 		if(arrKandidaat == null){
 			getArrayTotaal();
 		}
 		if(s==""){
-		//	return getArrayTotaal();
+			return getArrayTotaal();
 		}else if(s!=""){
 			for(Kandidaat k: arrKandidaat){
 				if(s.equals(k.getNaam().toString())){
@@ -55,5 +37,23 @@ public class Data extends Kandidaat {
 				}
 			}
 		}
-		return "Invalid entry";    }*/
+		return "Invalid entry";   
+	}*/
+
+	/*public String getArrayTotaal(){
+	String sb = "";
+	for (int i =0; i < arrKandidaat.size(); i++){
+		sb = sb.concat(arrKandidaat.get(i).getNaam() + "   " + arrKandidaat.get(i).getLeeftijd() + " " + arrKandidaat.get(i).getArrSkills()+"<br>");    		
+	}
+
+	return sb;
+}
+
+public String getArrayNaam(String s, int x){
+	String sb = "";
+	for (int i =0; i < arrKandidaat.size(); i++){
+		sb = sb.concat(arrKandidaat.get(i).getNaam() + " " + arrKandidaat.get(i).getLeeftijd() + "<br>");    		
+	}
+	return sb;
+}  */  
 }
