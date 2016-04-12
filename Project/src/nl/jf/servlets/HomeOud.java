@@ -14,7 +14,7 @@ import nl.jf.yc.Kandidaat;
  * Servlet implementation class Home
  */
 @WebServlet("/Home")
-public class Home extends HttpServlet {
+public class HomeOud extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	Data d = new Data();
 	private String invoer = ""; 
@@ -22,7 +22,7 @@ public class Home extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Home() {
+    public HomeOud() {
         super();
         // TODO Auto-generated constructor stub
     }       
