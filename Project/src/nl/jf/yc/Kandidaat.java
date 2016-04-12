@@ -36,6 +36,10 @@ public class Kandidaat {
 	public int getLeeftijd(){
 		return this.leeftijd;
 	}
+	
+	public void setLeeftijd(int leeftijd) {
+		this.leeftijd = leeftijd;
+	}
 
 	public ArrayList<String> getArrSkills(){	
 		return this.arrSkills;

@@ -42,11 +42,12 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value="/home", method=RequestMethod.POST)
-	public String homeMvc(@RequestParam String naam, Model model) {
+	public String homeMvc(@RequestParam String naam, Model model, @RequestParam int leeftijd) {
 		model.addAttribute("LijstTotaal", d.getArrayTotaal());
 		model.addAttribute("getAge", d.getLeeftijd());
 		model.addAttribute("getNaam", d.getNaam());
-		model.addAttribute("message", "Ingevuld: " + naam);
+		model.addAttribute("naam", naam);
+		model.addAttribute("leeftijd", leeftijd);
 	
 		return "MainHtml";
 	}

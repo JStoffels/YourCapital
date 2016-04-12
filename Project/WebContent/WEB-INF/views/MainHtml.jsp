@@ -25,12 +25,22 @@
 		Zoek op naam: 
 		</form:label>
 		<form:input path="naam" />
+		<form:label path="leeftijd">
+		Zoek op leeftijd: 
+		</form:label>
+		<form:input path="leeftijd" />
 		<input type="submit" value="Search">
 	</form:form>
 	<p></p>
 	
 	<c:forEach items="${LijstTotaal}" var="kandidaat">
-		<c:if test="${message == 'Henk'}">
+		<c:if test="${naam == kandidaat.naam}">
+		<p>${kandidaat.naam}, ${kandidaat.leeftijd}, ${kandidaat.arrSkills}</p>
+		</c:if>
+	</c:forEach>
+	
+	<c:forEach items="${LijstTotaal}" var="kandidaat">
+		<c:if test="${leeftijd == kandidaat.leeftijd}">
 		<p>${kandidaat.naam}, ${kandidaat.leeftijd}, ${kandidaat.arrSkills}</p>
 		</c:if>
 	</c:forEach>
