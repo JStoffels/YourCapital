@@ -1,4 +1,4 @@
-package nl.jf.servlets;
+/*package nl.jf.servlets;
 
 import java.util.ArrayList;
 
@@ -58,3 +58,4 @@ public class HomeController {
 		return "MainHtml";
 	}
 }
+*/
