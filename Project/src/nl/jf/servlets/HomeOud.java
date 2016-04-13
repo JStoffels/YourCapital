@@ -1,4 +1,4 @@
-package nl.jf.servlets;
+/*package nl.jf.servlets;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -10,26 +10,26 @@ import javax.servlet.http.HttpServletResponse;
 import nl.jf.yc.Data;
 import nl.jf.yc.Kandidaat;
 
-/**
- * Servlet implementation class Home
- */
+
+ Servlet implementation class Home
+ 
 @WebServlet("/Home")
 public class HomeOud extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	Data d = new Data();
 	private String invoer = ""; 
 	
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+    /
+     @see HttpServlet#HttpServlet()
+     
     public HomeOud() {
         super();
         // TODO Auto-generated constructor stub
     }       
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
+	 @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
@@ -49,12 +49,13 @@ public class HomeOud extends HttpServlet {
 	}
 	
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
+	 @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 
 }
+*/

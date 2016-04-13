@@ -20,7 +20,7 @@
 			de volgende vaardigheden: "${kandidaat.arrSkills}".</li>
 	</c:forEach>
 	<p></p>
-	<form:form id="form" method="post" modelAttribute="Kandidaat" action="/Project/home">
+	<form:form id="form" method="post" modelAttribute="Kandidaat">
 		
 		<form:label path="naam">
 		<p>Zoek op naam: </p>
@@ -32,14 +32,15 @@
 		</form:label>
 		<form:input path="leeftijd"/>
 
+	<form:label path="skill">
+		<p>Zoek op skill:</p>
+		</form:label>
+		<form:input path="skill"/>
+
+		
 		<p></p>
 		<input type="submit" value="Search">
 	</form:form>
-	
-	<c:forEach items="${kanlijst}" var="kandidaat">
-		<li>"${kandidaat.naam}"</li>
-	</c:forEach>
-		
 	<p></p>
 	
 	<c:forEach items="${LijstTotaal}" var="kandidaat">
@@ -49,8 +50,20 @@
 		<c:if test="${leeftijd == kandidaat.leeftijd}">
 			<p>${kandidaat.naam}, ${kandidaat.leeftijd}, ${kandidaat.arrSkills}</p>
 		</c:if>
+		
+		<c:forEach items="${kandidaat.arrSkills}" var="skill2">
+			<c:if test="${skill == skill2}">
+				<p>${kandidaat.naam}, ${kandidaat.leeftijd}, ${kandidaat.arrSkills}</p>
+			</c:if>
+		</c:forEach>
+		
 	</c:forEach>
 	
-	<p>last update: 13 april</p>
+	
+	
+
+
+	
+	<p>last update: 12 april</p>
 </body>
 </html>
