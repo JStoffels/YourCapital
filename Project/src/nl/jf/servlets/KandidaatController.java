@@ -22,11 +22,10 @@ public class KandidaatController {
 		return new Kandidaat();
 	}
 	
-	@RequestMapping(value="/home", method=RequestMethod.GET)
+	@RequestMapping("/home")
 	public String homeMvc(Model model) {	
-		
 		// DISPLAY GEGEVENS KANDIDAAT
-		
+		model.addAttribute("kandidaten", KandidaatDao.all());
 		return "MainHtml";
 	}
 	
@@ -37,10 +36,11 @@ public class KandidaatController {
 		//MAAK KANDIDAAT
 		return "MainHtml";
 	}*/
+
+	//MAAK KANDIDAAT
 	@RequestMapping(value="/home", method=RequestMethod.POST)
-	public String create(){
-		KandidaatDao.create();
-		//MAAK KANDIDAAT
+	public String create(String naam, int leeftijd){
+		KandidaatDao.create(naam, leeftijd);
 		return "redirect:/home";
 	}
 }

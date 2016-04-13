@@ -43,19 +43,9 @@
 	</form:form>
 	<p></p>
 	
-	<c:forEach items="${LijstTotaal}" var="kandidaat">
-		<c:if test="${naam == kandidaat.naam}">
-			<p>${kandidaat.naam}, ${kandidaat.leeftijd}, ${kandidaat.arrSkills}</p>
-		</c:if>
-		<c:if test="${leeftijd == kandidaat.leeftijd}">
-			<p>${kandidaat.naam}, ${kandidaat.leeftijd}, ${kandidaat.arrSkills}</p>
-		</c:if>
-		
-		<c:forEach items="${kandidaat.arrSkills}" var="skill2">
-			<c:if test="${skill == skill2}">
-				<p>${kandidaat.naam}, ${kandidaat.leeftijd}, ${kandidaat.arrSkills}</p>
-			</c:if>
-		</c:forEach>
+	<c:forEach items="${kandidaten}" var="kandidaat">
+
+			<p>${kandidaat.naam}, ${kandidaat.leeftijd}</p>
 		
 	</c:forEach>
 	

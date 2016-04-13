@@ -19,7 +19,7 @@ public class Kandidaat {
 	public Kandidaat(String a, int b, String ... s){
 		this.naam = a;
 		this.leeftijd = b;
-		setArrSkills(s);
+	//	setArrSkills(s);
 	}
 	
 	//Entity related
@@ -42,7 +42,7 @@ public class Kandidaat {
 	private String skill;
 	private int leeftijd;
 
-	private ArrayList<String> arrSkills = new ArrayList<String>();
+	//private ArrayList<String> arrSkills = new ArrayList<String>();
 
 	//getters and setters
 
@@ -71,7 +71,7 @@ public class Kandidaat {
 		this.leeftijd = leeftijd;
 	}
 	//Array skills
-	public ArrayList<String> getArrSkills(){	
+	/*public ArrayList<String> getArrSkills(){	
 		return this.arrSkills;
 	}
 
@@ -81,7 +81,7 @@ public class Kandidaat {
 			arrSkills.add(str);
 			x++;
 		}		
-	}
+	}*/
 
 
 }
