@@ -57,4 +57,5 @@ public class Kandidaat {
 	public void setLeeftijd(int leeftijd) {
 		this.leeftijd = leeftijd;
 	}
+
 }

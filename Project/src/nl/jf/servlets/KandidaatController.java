@@ -1,7 +1,5 @@
 package nl.jf.servlets;
 
-import java.util.List;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -28,6 +26,7 @@ public class KandidaatController {
 		return "MainHtml";
 	}
 	
+
 	@RequestMapping(value="/home", method=RequestMethod.POST)
 	public String create(Model model, String naam, int leeftijd){
 		KandidaatDao.create(naam, leeftijd);

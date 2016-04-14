@@ -38,7 +38,7 @@
 	</form:form>
 	<p></p>
 
-	<c:forEach items="${kandidaten}" var="kandidaat">			
+	<c:forEach items="${kandidaten}" var="kandidaat">		
 			<p><a href="<c:url value="/kandidaat/${kandidaat.id}"/>">
 			Kandidaat ${kandidaat.id}: 
 			${kandidaat.naam}, ${kandidaat.leeftijd}</a> <a href="<c:url value="/delete/${kandidaat.id}"/>">Delete</a> </p>

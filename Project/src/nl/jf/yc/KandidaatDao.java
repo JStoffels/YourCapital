@@ -7,10 +7,12 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
+
 public class KandidaatDao {
 	private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("kandidaten");
 
 	// maakt een kandidaat object in de database aan
+
 	public static Kandidaat create(String naam, int leeftijd) {
 		Kandidaat k = new Kandidaat();
 		k.setNaam(naam);
@@ -18,7 +20,7 @@ public class KandidaatDao {
 		
 		EntityManager em = emf.createEntityManager();
 		EntityTransaction t = em.getTransaction();
-		t.begin();		
+		t.begin();
 		em.persist(k);		
 		t.commit();
 		em.close();		
@@ -59,5 +61,4 @@ public class KandidaatDao {
 		em.close();
 		return k;
 	}
-	
 }
