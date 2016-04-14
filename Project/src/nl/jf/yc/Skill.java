@@ -1,7 +1,6 @@
 package nl.jf.yc;
 
 import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -10,16 +9,17 @@ import javax.persistence.ManyToMany;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
-public class Kandidaat {
-
-	private List<Skill> skills;
+public class Skill {
+	
+	private String naam;
+	private List<Kandidaat> kandidaat;
 	
 	//default constructor, want bean
-	public Kandidaat(){}
-
+	public Skill(){}
+	
 	//Entity related
-	private Long id;
-
+		private Long id;
+	
 	@Id
 	@GeneratedValue(generator="increment")
 	@GenericGenerator(name="increment", strategy = "increment")
@@ -30,37 +30,20 @@ public class Kandidaat {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
-	//fields
-	//@NotEmpty(message="Kan niet")
-	private String naam;
-	private int leeftijd;
 
-	//getters and setters
-	//Naam
-	public String getNaam(){
-		return this.naam;
+	public String getNaam() {
+		return naam;
 	}
-		
+
 	public void setNaam(String naam) {
 		this.naam = naam;
 	}
-
-	//Leeftijd
-	public int getLeeftijd(){
-		return this.leeftijd;
-	}
 	
-	public void setLeeftijd(int leeftijd) {
-		this.leeftijd = leeftijd;
+	@ManyToMany
+	public List<Kandidaat> getKandidaten(){
+		return kandidaat;
 	}
-	
-	@ManyToMany(mappedBy="kandidaten")
-	public List<Skill> getSkills() {
-		return skills;
+	public void setKandidaten(List<Kandidaat> kandidaat){
+		this.kandidaat = kandidaat;
 	}
-	public void setSkills(List<Skill> skills) {
-		this.skills = skills;
-	}
-
 }

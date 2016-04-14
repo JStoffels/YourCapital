@@ -12,7 +12,6 @@ public class KandidaatDao {
 	private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("kandidaten");
 
 	// maakt een kandidaat object in de database aan
-
 	public static Kandidaat create(String naam, int leeftijd) {
 		Kandidaat k = new Kandidaat();
 		k.setNaam(naam);

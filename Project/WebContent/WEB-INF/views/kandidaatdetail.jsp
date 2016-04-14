@@ -17,5 +17,7 @@
 <h1>Kandidaat: ${kandidaat.naam}</h1>
 <p>ID: ${kandidaat.id}</p>
 <p>Leeftijd: ${kandidaat.leeftijd}</p>
+
+
 </body>
 </html>

@@ -15,33 +15,28 @@
 </head>
 <body>
 	<h2>Zoekscherm...</h2>
-	<p>Lijst met kandidaten:</p>
-	<c:forEach items="${LijstTotaal}" var="kandidaat">
-		<li>"${kandidaat.naam}" is "${kandidaat.leeftijd}" jaar oud en heeft
-			de volgende vaardigheden: "${kandidaat.arrSkills}".</li>
-	</c:forEach>
 	<p></p>
 	<form:form id="form" method="post" modelAttribute="Kandidaat">
 		
+		<p>Kandidaat toevoegen:</p>
 		<form:label path="naam">
-		<p>Zoek op naam: </p>
+		<p>Naam:</p>
 		</form:label>
-		<form:input path="naam"/>
+		<form:input path="naam" value=".."/>
 		
 		<form:label path="leeftijd">
-		<p>Zoek op leeftijd:</p>
+		<p>Leeftijd:</p>
 		</form:label>
-		<form:input path="leeftijd"/>	
+		<form:input path="leeftijd" value=".."/>	
 			
 		<p></p>
 		<input type="submit" value="Search">
 	</form:form>
 	<p></p>
-
+	<p>Kandidaten in database:</p>
 	<c:forEach items="${kandidaten}" var="kandidaat">		
 			<p><a href="<c:url value="/kandidaat/${kandidaat.id}"/>">
-			Kandidaat ${kandidaat.id}: 
-			${kandidaat.naam}, ${kandidaat.leeftijd}</a> <a href="<c:url value="/delete/${kandidaat.id}"/>">Delete</a> </p>
+			Kandidaat ID: ${kandidaat.id}, naam ${kandidaat.naam}</a> <a href="<c:url value="/delete/${kandidaat.id}"/>"><input type="submit" value="Delete"></a> </p>
 	</c:forEach>
 	
 	<p>last update: 14 april</p>
