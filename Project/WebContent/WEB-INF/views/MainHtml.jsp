@@ -8,7 +8,8 @@
 <html>
 <head>
 <header>
-	<h1>YourCapital</h1>
+	<p><img src="http://vamers.com/wp-content/uploads/2013/08/Vamers-Games-LEGO-Marvel-Super-Heroes-Banner.jpg"/></p>
+	<h1><h1>
 </header>
 <title>YourCapital Home Page</title>
 </head>
@@ -30,40 +31,19 @@
 		<form:label path="leeftijd">
 		<p>Zoek op leeftijd:</p>
 		</form:label>
-		<form:input path="leeftijd"/>
-
-	<form:label path="skill">
-		<p>Zoek op skill:</p>
-		</form:label>
-		<form:input path="skill"/>
-
-		
+		<form:input path="leeftijd"/>	
+			
 		<p></p>
 		<input type="submit" value="Search">
 	</form:form>
 	<p></p>
-	
-	<c:forEach items="${LijstTotaal}" var="kandidaat">
-		<c:if test="${naam == kandidaat.naam}">
-			<p>${kandidaat.naam}, ${kandidaat.leeftijd}, ${kandidaat.arrSkills}</p>
-		</c:if>
-		<c:if test="${leeftijd == kandidaat.leeftijd}">
-			<p>${kandidaat.naam}, ${kandidaat.leeftijd}, ${kandidaat.arrSkills}</p>
-		</c:if>
-		
-		<c:forEach items="${kandidaat.arrSkills}" var="skill2">
-			<c:if test="${skill == skill2}">
-				<p>${kandidaat.naam}, ${kandidaat.leeftijd}, ${kandidaat.arrSkills}</p>
-			</c:if>
-		</c:forEach>
-		
+
+	<c:forEach items="${kandidaten}" var="kandidaat">			
+			<p><a href="<c:url value="/kandidaat/${kandidaat.id}"/>">
+			Kandidaat ${kandidaat.id}: 
+			${kandidaat.naam}, ${kandidaat.leeftijd}</a> <a href="<c:url value="/delete/${kandidaat.id}"/>">Delete</a> </p>
 	</c:forEach>
 	
-	
-	
-
-
-	
-	<p>last update: 12 april</p>
+	<p>last update: 14 april</p>
 </body>
 </html>
