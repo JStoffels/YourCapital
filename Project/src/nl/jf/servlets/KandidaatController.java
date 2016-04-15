@@ -32,10 +32,21 @@ public class KandidaatController {
 		return "index";
 	}
 	
+	@RequestMapping("/zoek")
+	public String zoekhtml(){
+		return "ZoekHtml";
+	}
+	
 	@RequestMapping(value="/home", method=RequestMethod.POST)
 	public String create(Model model, String naam, int leeftijd){
 		KandidaatDao.create(naam, leeftijd);
 		return "redirect:/home";
+	}
+	
+	@RequestMapping(value="/zoek", method=RequestMethod.POST)
+	public String search(Model model, String naam){
+		model.addAttribute("namen", naam);
+		return "ZoekHtml";
 	}
 	
 	@RequestMapping(value="/delete/{id}")

@@ -33,12 +33,14 @@
 		<input type="submit" value="Search">
 	</form:form>
 	<p></p>
-	<p>Kandidaten in database:</p>
+	<p>Resultaat:</p>
 	<c:forEach items="${kandidaten}" var="kandidaat">		
-			<p><a href="<c:url value="/kandidaat/${kandidaat.id}"/>">
-			Kandidaat ID: ${kandidaat.id}, naam ${kandidaat.naam}</a> <a href="<c:url value="/delete/${kandidaat.id}"/>"><input type="submit" value="Delete"></a> </p>
+			<c:if test="${kandidaat.naam } ">
+			<p>${kandidaat.id} - ${kandidaat.naam}</p>
+			else <p> Geen resultaat </p>
+			</c:if>
 	</c:forEach>
-	
+			
 	<p>last update: 15 april</p>
 </body>
 </html>

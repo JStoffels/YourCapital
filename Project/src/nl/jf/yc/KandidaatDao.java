@@ -62,6 +62,17 @@ public class KandidaatDao {
 		return skills;
 	}
 	
+	// haalt de lijst met skills op uit de database
+	public static List<Kandidaat> allNaam(){
+		EntityManager em = emf.createEntityManager();
+		EntityTransaction t = em.getTransaction();
+		t.begin();
+		List<Kandidaat> k = em.createQuery("from Kandidaat", Kandidaat.class).getResultList();
+		t.commit();
+		em.close();
+		return k;
+	}
+	
 	// verwijdert een kandidaat object uit de database
 	public static void remove(Long id){
 		EntityManager em = emf.createEntityManager();
