@@ -8,55 +8,17 @@
 <html>
 <head>
 <header>
-
-	<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-	<script>
-	
-	function eternal(){
-		$('img').fadeToggle(4000, function(){
-			eternal();
-		});
-	}
-	function onOver(){
-	$('img').mouseenter(function() {
-	       $(this).animate({
-	           height: '+=50px'
-	       }, { duration: 200, queue: false });
-	   });
-	}
-	function onLeave(){
-		$('img').mouseleave(function() {
-		       $(this).animate({
-		           height: '-=50px'
-		       }, { duration: 200, queue: false });
-		   });
-		}
-	function onClick(){
-	$('img').click(function() {
-	       $(this).toggle(1000);
-	   });
-	}
-	window.onload = function(){
-		$(document).ready(function() {
-			onLeave();
-			onOver();
-			onClick();
-			//eternal();
-		});
-	}
-	</script>
-
 	<p><img src="http://vamers.com/wp-content/uploads/2013/08/Vamers-Games-LEGO-Marvel-Super-Heroes-Banner.jpg"/></p>
 	<h1><h1>
 </header>
 <title>YourCapital Home Page</title>
 </head>
 <body>
-	<h2>Kandidaat aanmaken</h2>
+	<h2>Zoekscherm...</h2>
 	<p></p>
 	<form:form id="form" method="post" modelAttribute="Kandidaat">
 		
-		<p>Kandidaat toevoegen:</p>
+		<p>Kandidaat zoeken:</p>
 		<form:label path="naam">
 		<p>Naam:</p>
 		</form:label>

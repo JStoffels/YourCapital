@@ -26,6 +26,20 @@ public class KandidaatDao {
 		return k;
 	}
 	
+	//maakt een skill object in de database aan
+	public static Skill create(String naam) {
+		Skill s = new Skill();
+		s.setNaam(naam);
+		
+		EntityManager em = emf.createEntityManager();
+		EntityTransaction t = em.getTransaction();
+		t.begin();
+		em.persist(s);		
+		t.commit();
+		em.close();		
+		return s;
+	}
+	
 	// haalt de lijst met kandidaten op uit de database
 	public static List<Kandidaat> all(){
 		EntityManager em = emf.createEntityManager();
@@ -35,6 +49,17 @@ public class KandidaatDao {
 		t.commit();
 		em.close();
 		return kandidaten;
+	}
+	
+	// haalt de lijst met skills op uit de database
+	public static List<Skill> allSkill(){
+		EntityManager em = emf.createEntityManager();
+		EntityTransaction t = em.getTransaction();
+		t.begin();
+		List<Skill> skills = em.createQuery("from Skill", Skill.class).getResultList();
+		t.commit();
+		em.close();
+		return skills;
 	}
 	
 	// verwijdert een kandidaat object uit de database

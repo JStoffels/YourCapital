@@ -59,8 +59,8 @@ public class Kandidaat {
 	public List<Skill> getSkills() {
 		return skills;
 	}
-	public void setSkills(List<Skill> skills) {
-		this.skills = skills;
+	public void setSkills(List<Skill> s) {
+		this.skills = s;
 	}
 
 }

@@ -8,16 +8,59 @@
 <html>
 <head>
 <header>
-	<p><img src="http://vamers.com/wp-content/uploads/2013/08/Vamers-Games-LEGO-Marvel-Super-Heroes-Banner.jpg"/></p>
-	<h1><h1>
+	<img src="http://vamers.com/wp-content/uploads/2013/08/Vamers-Games-LEGO-Marvel-Super-Heroes-Banner.jpg"/>
+	
 </header>
 <title>Kandidaat overzicht</title>
 </head>
 <body>
-<h1>Kandidaat: ${kandidaat.naam}</h1>
-<p>ID: ${kandidaat.id}</p>
-<p>Leeftijd: ${kandidaat.leeftijd}</p>
 
+		<h1>Kandidaat: ${kandidaat.naam}</h1>
+		<p>${kandidaat.leeftijd}</p>
+		Kandidaat ID ${kandidaat.id}:
+		<p></p>
+	
+		<form:form id="form" method="post" modelAttribute="kandidaat">
+			<form:label path="naam">
+				<p>Skill toevoegen:</p>
+			</form:label>
+			<form:input path="naam" value=".." />
+				<p></p>
+			<input type="submit" value="ADD">
+		</form:form>
+		<c:forEach items="${skills}" var="skill">
+			<li>"${skill.naam}"</li>
+		</c:forEach>
 
+<script>
+	window.onload = function() {
+		var h1 = document.getElementsByTagName('h1')[0];
+		var img = document.getElementsByTagName('img')[0];
+		var size_span = document.getElementById('size');
+		var size = 0;
+
+		img.onclick = function() {
+			img.width = (img.width) + 10;
+			img.heigth = (img.heigth) + 10;
+			size_span.innerText = size;
+			size = size + 10;
+			if (size % 15 == 0)
+				document.body.style.backgroundColor = "green";
+			else
+				document.body.style.backgroundColor = "blue";
+		}
+
+		h1.onclick = function() {
+			img.width = (img.width) - 10;
+			img.heigth = (img.heigth) - 10;
+			size.span_innerTekst = size;
+			size = size - 10;
+			if (size % 25 == 0)
+				document.body.style.backgroundColor = "purple";
+			else
+				document.body.style.backgroundColor = "red";
+		}
+	}
+</script>
 </body>
 </html>

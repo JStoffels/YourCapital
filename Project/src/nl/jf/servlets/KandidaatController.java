@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import nl.jf.yc.Kandidaat;
 import nl.jf.yc.KandidaatDao;
+import nl.jf.yc.SkillDao;
 
 @SessionAttributes("Kandidaat")
 @Controller
@@ -26,7 +27,11 @@ public class KandidaatController {
 		return "MainHtml";
 	}
 	
-
+	@RequestMapping("/carousel")
+	public String carousel(){
+		return "index";
+	}
+	
 	@RequestMapping(value="/home", method=RequestMethod.POST)
 	public String create(Model model, String naam, int leeftijd){
 		KandidaatDao.create(naam, leeftijd);
@@ -50,6 +55,7 @@ public class KandidaatController {
 	@RequestMapping(value="/kandidaat/{id}")
 	public String detailView(@PathVariable String id, Model model){
 		Long key;
+		model.addAttribute("skills", SkillDao.all());
 		try{
 			key = Long.valueOf(id);
 		}
@@ -65,6 +71,12 @@ public class KandidaatController {
 			model.addAttribute("kandidaat", k);
 			return "kandidaatdetail";
 		}
+	}
+	
+	@RequestMapping(value="/kandidaat/{id}", method=RequestMethod.POST)
+	public String createSkill(Model model, String naam){
+		SkillDao.create(naam);
+			return "redirect:/kandidaat/{id}";	
 	}
 	
 }
