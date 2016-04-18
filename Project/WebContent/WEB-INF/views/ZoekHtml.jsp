@@ -16,18 +16,13 @@
 <body>
 	<h2>Zoekscherm...</h2>
 	<p></p>
-	<form:form id="form" method="post" modelAttribute="Kandidaat">
+	<form:form id="form" method="get" modelAttribute="Kandidaat">
 		
 		<p>Kandidaat zoeken:</p>
 		<form:label path="naam">
 		<p>Naam:</p>
 		</form:label>
-		<form:input path="naam" value=".."/>
-		
-		<form:label path="leeftijd">
-		<p>Leeftijd:</p>
-		</form:label>
-		<form:input path="leeftijd" value=".."/>	
+		<form:input path="naam" value=""/>
 			
 		<p></p>
 		<input type="submit" value="Search">
@@ -35,12 +30,10 @@
 	<p></p>
 	<p>Resultaat:</p>
 	<c:forEach items="${kandidaten}" var="kandidaat">		
-			<c:if test="${kandidaat.naam } ">
-			<p>${kandidaat.id} - ${kandidaat.naam}</p>
-			else <p> Geen resultaat </p>
+			<c:if test="${namen == kandidaat.naam}">
+			<p>${kandidaat.id}, ${kandidaat.naam}</p>
 			</c:if>
-	</c:forEach>
-			
+	</c:forEach>		
 	<p>last update: 15 april</p>
 </body>
 </html>

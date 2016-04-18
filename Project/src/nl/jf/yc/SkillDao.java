@@ -1,23 +1,18 @@
 package nl.jf.yc;
 
 import java.util.List;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
-
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-
 
 public class SkillDao {
 	private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("kandidaten");
 
 	// maakt een kandidaat object in de database aan
-
 	public static Skill create(String naam) {
 		Skill s = new Skill();
 		s.setNaam(naam);
@@ -65,7 +60,4 @@ public class SkillDao {
 		em.close();
 		return s;
 	}
-	
-	
-	
 }

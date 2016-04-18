@@ -32,8 +32,10 @@ public class KandidaatController {
 		return "index";
 	}
 	
-	@RequestMapping("/zoek")
-	public String zoekhtml(){
+	@RequestMapping(value="/zoek", method=RequestMethod.GET)
+	public String zoekhtml(Model model, String naam){
+		model.addAttribute("kandidaten", KandidaatDao.all());
+		model.addAttribute("namen", naam);
 		return "ZoekHtml";
 	}
 	

@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<header>
+
 
 	<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 	<script>
@@ -47,8 +47,8 @@
 	</script>
 
 	<p><img src="http://vamers.com/wp-content/uploads/2013/08/Vamers-Games-LEGO-Marvel-Super-Heroes-Banner.jpg"/></p>
-	<h1><h1>
-</header>
+	
+
 <title>YourCapital Home Page</title>
 </head>
 <body>
@@ -68,13 +68,15 @@
 		<form:input path="leeftijd" value=".."/>	
 			
 		<p></p>
-		<input type="submit" value="Search">
+		<input type="submit" value="Add">
 	</form:form>
 	<p></p>
 	<p>Kandidaten in database:</p>
 	<c:forEach items="${kandidaten}" var="kandidaat">		
 			<p><a href="<c:url value="/kandidaat/${kandidaat.id}"/>">
-			Kandidaat ID: ${kandidaat.id}, naam ${kandidaat.naam}</a> <a href="<c:url value="/delete/${kandidaat.id}"/>"><input type="submit" value="Delete"></a> </p>
+			Kandidaat ID: ${kandidaat.id}, naam ${kandidaat.naam}</a>
+			<a href="<c:url value="/delete/${kandidaat.id}"/>">
+			<input type="submit" value="Delete"></a> </p>
 	</c:forEach>
 	
 	<p>last update: 15 april</p>
