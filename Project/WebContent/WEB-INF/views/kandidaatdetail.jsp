@@ -26,14 +26,17 @@
 			</form:label>
 			<form:input path="naam" value=".." />
 				<p></p>
-			<input type="submit" value="ADD">
+			<input type="submit" value="Voeg toe">
 		</form:form>
+		<p>Skill verwijderen:</p>
 		<c:forEach items="${skills}" var="skill">
-			<li>"${skill.naam}"</li>
+			<li>"${skill.naam}"
+			<a href="<c:url value="/deleteskill/${skill.id}"/>">
+			<input type="submit" value="Delete"></a></li>
 		</c:forEach>
-
-<script>
-	window.onload = function() {
+		
+	<script>
+		window.onload = function() {
 		var h1 = document.getElementsByTagName('h1')[0];
 		var img = document.getElementsByTagName('img')[0];
 		var size_span = document.getElementById('size');
@@ -59,8 +62,8 @@
 				document.body.style.backgroundColor = "purple";
 			else
 				document.body.style.backgroundColor = "red";
+			}
 		}
-	}
-</script>
+	</script>
 </body>
 </html>

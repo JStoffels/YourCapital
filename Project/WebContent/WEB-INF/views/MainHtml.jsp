@@ -54,7 +54,7 @@
 <body>
 	<h2>Kandidaat aanmaken</h2>
 	<p></p>
-	<form:form id="form" method="post" modelAttribute="Kandidaat">
+	<form:form id="form" method="post" modelAttribute="kandidaat">
 		
 		<p>Kandidaat toevoegen:</p>
 		<form:label path="naam">

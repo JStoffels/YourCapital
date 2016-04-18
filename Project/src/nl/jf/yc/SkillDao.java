@@ -5,22 +5,18 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 public class SkillDao {
 	private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("kandidaten");
 
-	// maakt een kandidaat object in de database aan
+	// maakt een skill object in de database aan
 	public static Skill create(String naam) {
 		Skill s = new Skill();
-		s.setNaam(naam);
-		
+		s.setNaam(naam);		
 		EntityManager em = emf.createEntityManager();
 		EntityTransaction t = em.getTransaction();
 		t.begin();
-		em.persist(s);		
+		em.persist(s);
 		t.commit();
 		em.close();		
 		return s;
@@ -37,7 +33,7 @@ public class SkillDao {
 		return s;
 	}
 	
-	// verwijdert een kandidaat object uit de database
+	// verwijdert een skill object uit de database
 	public static void remove(Long id){
 		EntityManager em = emf.createEntityManager();
 		EntityTransaction t = em.getTransaction();
@@ -50,7 +46,7 @@ public class SkillDao {
 		em.close();
 	}
 	
-	// zoekt een kandidaat object in de database
+	// zoekt een skill object in de database
 	public static Skill find(Long id){
 		EntityManager em = emf.createEntityManager();
 		EntityTransaction t = em.getTransaction();

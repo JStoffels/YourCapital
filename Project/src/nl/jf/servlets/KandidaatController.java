@@ -7,18 +7,23 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
-
 import nl.jf.yc.Kandidaat;
 import nl.jf.yc.KandidaatDao;
+import nl.jf.yc.Skill;
 import nl.jf.yc.SkillDao;
 
 @SessionAttributes("Kandidaat")
 @Controller
 public class KandidaatController {
 		
-	@ModelAttribute("Kandidaat")
+	@ModelAttribute("kandidaat")
 	public Kandidaat createKandidaat() {
 		return new Kandidaat();
+	}
+	
+	@ModelAttribute("skill")
+	public Skill createSkill() {
+		return new Skill();
 	}
 	
 	@RequestMapping("/home")
@@ -65,6 +70,20 @@ public class KandidaatController {
 		return "redirect:/home";
 	}
 	
+	@RequestMapping(value="/deleteskill/{id}")
+	public String deleteSkill(@PathVariable String id){
+		Long key;
+		try{
+			key = Long.valueOf(id);
+		}
+		catch(NumberFormatException e){
+			// id is geen getal? error 404
+			return null;
+		}
+		SkillDao.remove(key);
+		return "redirect:/kandidaat/{kandidaat.id}";
+	}
+	
 	@RequestMapping(value="/kandidaat/{id}")
 	public String detailView(@PathVariable String id, Model model){
 		Long key;
@@ -87,9 +106,8 @@ public class KandidaatController {
 	}
 	
 	@RequestMapping(value="/kandidaat/{id}", method=RequestMethod.POST)
-	public String createSkill(Model model, String naam){
+	public String createSkill(String naam){
 		SkillDao.create(naam);
 			return "redirect:/kandidaat/{id}";	
 	}
-	
 }

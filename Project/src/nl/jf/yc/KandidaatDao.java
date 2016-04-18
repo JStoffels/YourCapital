@@ -7,7 +7,6 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
-
 public class KandidaatDao {
 	private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("kandidaten");
 
@@ -15,8 +14,7 @@ public class KandidaatDao {
 	public static Kandidaat create(String naam, int leeftijd) {
 		Kandidaat k = new Kandidaat();
 		k.setNaam(naam);
-		k.setLeeftijd(leeftijd);	
-		
+		k.setLeeftijd(leeftijd);			
 		EntityManager em = emf.createEntityManager();
 		EntityTransaction t = em.getTransaction();
 		t.begin();
@@ -24,20 +22,6 @@ public class KandidaatDao {
 		t.commit();
 		em.close();		
 		return k;
-	}
-	
-	//maakt een skill object in de database aan
-	public static Skill create(String naam) {
-		Skill s = new Skill();
-		s.setNaam(naam);
-		
-		EntityManager em = emf.createEntityManager();
-		EntityTransaction t = em.getTransaction();
-		t.begin();
-		em.persist(s);		
-		t.commit();
-		em.close();		
-		return s;
 	}
 	
 	// haalt de lijst met kandidaten op uit de database
@@ -50,24 +34,13 @@ public class KandidaatDao {
 		em.close();
 		return kandidaten;
 	}
-	
+		
 	// haalt de lijst met skills op uit de database
-	public static List<Skill> allSkill(){
+	public static List<Kandidaat> allNaam(String naam){
 		EntityManager em = emf.createEntityManager();
 		EntityTransaction t = em.getTransaction();
 		t.begin();
-		List<Skill> skills = em.createQuery("from Skill", Skill.class).getResultList();
-		t.commit();
-		em.close();
-		return skills;
-	}
-	
-	// haalt de lijst met skills op uit de database
-	public static List<Kandidaat> allNaam(){
-		EntityManager em = emf.createEntityManager();
-		EntityTransaction t = em.getTransaction();
-		t.begin();
-		List<Kandidaat> k = em.createQuery("from Kandidaat", Kandidaat.class).getResultList();
+		List<Kandidaat> k = em.createQuery("from Kandidaat where k.naam = naam", Kandidaat.class).getResultList();
 		t.commit();
 		em.close();
 		return k;
@@ -96,4 +69,29 @@ public class KandidaatDao {
 		em.close();
 		return k;
 	}
+	
+	/* // haalt de lijst met skills op uit de database
+	public static List<Skill> allSkill(){
+		EntityManager em = emf.createEntityManager();
+		EntityTransaction t = em.getTransaction();
+		t.begin();
+		List<Skill> skills = em.createQuery("from Skill", Skill.class).getResultList();
+		t.commit();
+		em.close();
+		return skills;
+	} */
+	
+	/* //maakt een skill object in de database aan
+	public static Skill create(String naam) {
+		Skill s = new Skill();
+		s.setNaam(naam);
+		
+		EntityManager em = emf.createEntityManager();
+		EntityTransaction t = em.getTransaction();
+		t.begin();
+		em.persist(s);		
+		t.commit();
+		em.close();		
+		return s;
+	}*/
 }
