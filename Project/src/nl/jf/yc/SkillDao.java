@@ -10,16 +10,39 @@ public class SkillDao {
 	private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("kandidaten");
 
 	// maakt een skill object in de database aan
-	public static Skill create(String naam) {
+	public static Skill create(String naam, Long id) {
 		Skill s = new Skill();
-		s.setNaam(naam);		
+		s.setNaam(naam);
 		EntityManager em = emf.createEntityManager();
 		EntityTransaction t = em.getTransaction();
 		t.begin();
+		Kandidaat k = em.find(Kandidaat.class, id);
+		k.getSkills().add(s);
 		em.persist(s);
+		em.persist(k);
 		t.commit();
 		em.close();		
 		return s;
+	}
+	
+	// verwijdert een skill object uit de database
+	public static void addSkill(long kandidaat_id, long skill_id){
+		
+		EntityManager em = emf.createEntityManager();
+		EntityTransaction t = em.getTransaction();
+		t.begin();
+		
+		Kandidaat k = em.find(Kandidaat.class, kandidaat_id);
+		Skill s = em.find(Skill.class,skill_id);
+		if(k == null || s == null){ 
+			System.out.println("addSkill(): kandidaat of skill bestaat niet!!");
+			return;
+		}
+		//k.getSkills().add(s);
+        s.getKandidaten().add(k);		
+		em.persist(k);
+		t.commit();
+		em.close();
 	}
 	
 	// haalt de lijst met skills op uit de database

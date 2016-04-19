@@ -6,7 +6,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
+
 import nl.jf.yc.Kandidaat;
 import nl.jf.yc.KandidaatDao;
 import nl.jf.yc.Skill;
@@ -19,11 +21,6 @@ public class KandidaatController {
 	@ModelAttribute("kandidaat")
 	public Kandidaat createKandidaat() {
 		return new Kandidaat();
-	}
-	
-	@ModelAttribute("skill")
-	public Skill createSkill() {
-		return new Skill();
 	}
 	
 	@RequestMapping("/home")
@@ -42,6 +39,14 @@ public class KandidaatController {
 		model.addAttribute("kandidaten", KandidaatDao.all());
 		model.addAttribute("namen", naam);
 		return "ZoekHtml";
+	}
+	
+	
+	@RequestMapping(value="/test", method=RequestMethod.GET)
+	public @ResponseBody String test(){
+		
+		SkillDao.addSkill(2L,2L);		
+		return "Ok";
 	}
 	
 	@RequestMapping(value="/home", method=RequestMethod.POST)
@@ -70,18 +75,18 @@ public class KandidaatController {
 		return "redirect:/home";
 	}
 	
-	@RequestMapping(value="/deleteskill/{id}")
-	public String deleteSkill(@PathVariable String id){
+	@RequestMapping(value="/deleteskill/{sid}/{kid}")
+	public String deleteSkill(@PathVariable String sid, @PathVariable String kid){
 		Long key;
 		try{
-			key = Long.valueOf(id);
+			key = Long.valueOf(sid);
 		}
 		catch(NumberFormatException e){
 			// id is geen getal? error 404
 			return null;
 		}
 		SkillDao.remove(key);
-		return "redirect:/kandidaat/{kandidaat.id}";
+		return "redirect:/kandidaat/{kid}";
 	}
 	
 	@RequestMapping(value="/kandidaat/{id}")
@@ -97,7 +102,7 @@ public class KandidaatController {
 		}
 		Kandidaat k = KandidaatDao.find(key);
 		if(k == null){
-			// geen rit met gegeven id? error 404
+			// geen kandidaat met gegeven id? error 404
 			return null;
 		} else {
 			model.addAttribute("kandidaat", k);
@@ -106,8 +111,11 @@ public class KandidaatController {
 	}
 	
 	@RequestMapping(value="/kandidaat/{id}", method=RequestMethod.POST)
-	public String createSkill(String naam){
-		SkillDao.create(naam);
+	public String createSkill(@PathVariable Long id, Model model, String naam){
+		Skill s = SkillDao.create(naam, id);
+		Long x = s.getId();
+		//SkillDao.addSkill(x, id, naam);
 			return "redirect:/kandidaat/{id}";	
+	
 	}
 }

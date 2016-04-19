@@ -31,7 +31,7 @@
 		<p>Skill verwijderen:</p>
 		<c:forEach items="${skills}" var="skill">
 			<li>"${skill.naam}"
-			<a href="<c:url value="/deleteskill/${skill.id}"/>">
+			<a href="<c:url value="/deleteskill/${skill.id}/${kandidaat.id}"/>">
 			<input type="submit" value="Delete"></a></li>
 		</c:forEach>
 		

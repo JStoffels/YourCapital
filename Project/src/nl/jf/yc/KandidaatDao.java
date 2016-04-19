@@ -14,7 +14,7 @@ public class KandidaatDao {
 	public static Kandidaat create(String naam, int leeftijd) {
 		Kandidaat k = new Kandidaat();
 		k.setNaam(naam);
-		k.setLeeftijd(leeftijd);			
+		k.setLeeftijd(leeftijd);
 		EntityManager em = emf.createEntityManager();
 		EntityTransaction t = em.getTransaction();
 		t.begin();
@@ -69,29 +69,4 @@ public class KandidaatDao {
 		em.close();
 		return k;
 	}
-	
-	/* // haalt de lijst met skills op uit de database
-	public static List<Skill> allSkill(){
-		EntityManager em = emf.createEntityManager();
-		EntityTransaction t = em.getTransaction();
-		t.begin();
-		List<Skill> skills = em.createQuery("from Skill", Skill.class).getResultList();
-		t.commit();
-		em.close();
-		return skills;
-	} */
-	
-	/* //maakt een skill object in de database aan
-	public static Skill create(String naam) {
-		Skill s = new Skill();
-		s.setNaam(naam);
-		
-		EntityManager em = emf.createEntityManager();
-		EntityTransaction t = em.getTransaction();
-		t.begin();
-		em.persist(s);		
-		t.commit();
-		em.close();		
-		return s;
-	}*/
 }

@@ -5,6 +5,8 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 
 import org.hibernate.annotations.GenericGenerator;
@@ -12,11 +14,15 @@ import org.hibernate.annotations.GenericGenerator;
 @Entity
 public class Kandidaat {
 
-	private List<Skill> skills;
-	
 	//default constructor, want bean
 	public Kandidaat(){}
-
+	
+	//fields
+	//@NotEmpty(message="Kan niet")
+	private String naam;
+	private int leeftijd;
+	private List<Skill> skills;
+	
 	//Entity related
 	private Long id;
 
@@ -31,11 +37,6 @@ public class Kandidaat {
 		this.id = id;
 	}
 	
-	//fields
-	//@NotEmpty(message="Kan niet")
-	private String naam;
-	private int leeftijd;
-
 	//getters and setters
 	//Naam
 	public String getNaam(){
@@ -56,11 +57,13 @@ public class Kandidaat {
 	}
 	
 	@ManyToMany(mappedBy="kandidaten")
+	//@JoinTable(name = "skill_kandidaat", joinColumns = @JoinColumn(name = "id"))
 	public List<Skill> getSkills() {
 		return skills;
 	}
-	public void setSkills(List<Skill> s) {
-		this.skills = s;
+
+	public void setSkills(List<Skill> skills) {
+		this.skills = skills;
 	}
 
 }

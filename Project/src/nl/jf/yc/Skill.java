@@ -18,7 +18,7 @@ public class Skill {
 	public Skill(){}
 	
 	//Entity related
-		private Long id;
+	private Long id;
 	
 	@Id
 	@GeneratedValue(generator="increment")
