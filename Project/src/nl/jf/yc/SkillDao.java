@@ -18,6 +18,7 @@ public class SkillDao {
 		t.begin();
 		Kandidaat k = em.find(Kandidaat.class, id);
 		k.getSkills().add(s);
+		//s.getKandidaten().add(k);
 		em.persist(s);
 		em.persist(k);
 		t.commit();
@@ -25,7 +26,7 @@ public class SkillDao {
 		return s;
 	}
 	
-	// verwijdert een skill object uit de database
+	// maakt een skill object in de database aan en voegt deze toe aan de kandidaat
 	public static void addSkill(long kandidaat_id, long skill_id){
 		
 		EntityManager em = emf.createEntityManager();
@@ -36,8 +37,7 @@ public class SkillDao {
 		Skill s = em.find(Skill.class,skill_id);
 		if(k == null || s == null){ 
 			System.out.println("addSkill(): kandidaat of skill bestaat niet!!");
-			return;
-		}
+			return;	}
 		//k.getSkills().add(s);
         s.getKandidaten().add(k);		
 		em.persist(k);
@@ -46,13 +46,16 @@ public class SkillDao {
 	}
 	
 	// haalt de lijst met skills op uit de database
-	public static List<Skill> all(){
+	public static List<Skill> all(long id){
 		EntityManager em = emf.createEntityManager();
 		EntityTransaction t = em.getTransaction();
 		t.begin();
-		List<Skill> s = em.createQuery("from Skill", Skill.class).getResultList();
+		//List<Skill> s = em.createQuery("SELECT Skill from Kandidaat where kandidaat_id=:id", Skill.class).getResultList();
+		//List<Skill> s = Skill.(em.find(Kandidaat.class, id));
+		Kandidaat k = em.find(Kandidaat.class, id);
+		List<Skill> s = k.getSkills();
 		t.commit();
-		em.close();
+	
 		return s;
 	}
 	

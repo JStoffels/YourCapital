@@ -50,8 +50,8 @@ public class KandidaatController {
 	}
 	
 	@RequestMapping(value="/home", method=RequestMethod.POST)
-	public String create(Model model, String naam, int leeftijd){
-		KandidaatDao.create(naam, leeftijd);
+	public String create(Model model, String naam, int leeftijd, String woonplaats){
+		KandidaatDao.create(naam, leeftijd, woonplaats);
 		return "redirect:/home";
 	}
 	
@@ -90,9 +90,9 @@ public class KandidaatController {
 	}
 	
 	@RequestMapping(value="/kandidaat/{id}")
-	public String detailView(@PathVariable String id, Model model){
+	public String detailView(@PathVariable long id, Model model){
 		Long key;
-		model.addAttribute("skills", SkillDao.all());
+		model.addAttribute("skills", SkillDao.all(id));
 		try{
 			key = Long.valueOf(id);
 		}
@@ -111,9 +111,10 @@ public class KandidaatController {
 	}
 	
 	@RequestMapping(value="/kandidaat/{id}", method=RequestMethod.POST)
-	public String createSkill(@PathVariable Long id, Model model, String naam){
+	public String createSkill(@PathVariable long id, Model model, String naam){
 		Skill s = SkillDao.create(naam, id);
-		Long x = s.getId();
+		SkillDao.addSkill(id, s.getId());
+		
 		//SkillDao.addSkill(x, id, naam);
 			return "redirect:/kandidaat/{id}";	
 	

@@ -11,10 +11,11 @@ public class KandidaatDao {
 	private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("kandidaten");
 
 	// maakt een kandidaat object in de database aan
-	public static Kandidaat create(String naam, int leeftijd) {
+	public static Kandidaat create(String naam, int leeftijd, String woonplaats) {
 		Kandidaat k = new Kandidaat();
 		k.setNaam(naam);
 		k.setLeeftijd(leeftijd);
+		k.setWoonplaats(woonplaats);
 		EntityManager em = emf.createEntityManager();
 		EntityTransaction t = em.getTransaction();
 		t.begin();
@@ -52,6 +53,8 @@ public class KandidaatDao {
 		EntityTransaction t = em.getTransaction();
 		t.begin();
 		Kandidaat k = em.find(Kandidaat.class, id);
+		//k.setSkills(null);
+		//em.persist(k);
 		if(k != null){
 			em.remove( k );
 		}

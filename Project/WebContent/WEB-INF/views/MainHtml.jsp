@@ -66,6 +66,11 @@
 		<p>Leeftijd:</p>
 		</form:label>
 		<form:input path="leeftijd" value=".."/>	
+		
+		<form:label path="woonplaats">
+		<p>Woonplaats:</p>
+		</form:label>
+		<form:input path="woonplaats" value=".."/>	
 			
 		<p></p>
 		<input type="submit" value="Add">

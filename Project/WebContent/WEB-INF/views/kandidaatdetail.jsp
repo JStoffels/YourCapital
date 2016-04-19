@@ -16,10 +16,12 @@
 <body>
 
 		<h1>Kandidaat: ${kandidaat.naam}</h1>
-		<p>${kandidaat.leeftijd}</p>
-		Kandidaat ID ${kandidaat.id}:
-		<p></p>
-	
+		<p>Leeftijd: ${kandidaat.leeftijd}</p>
+		<p>Kandidaat ID: ${kandidaat.id}</p>
+		<p>Woonplaats: ${kandidaat.woonplaats}</p>
+		<p>Skills: <c:forEach items="${skills}" var="skill">
+			<li>"${skill.naam}"</li></c:forEach></p>
+			
 		<form:form id="form" method="post" modelAttribute="kandidaat">
 			<form:label path="naam">
 				<p>Skill toevoegen:</p>

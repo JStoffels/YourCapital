@@ -2,6 +2,7 @@ package nl.jf.yc;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -22,7 +23,16 @@ public class Kandidaat {
 	private String naam;
 	private int leeftijd;
 	private List<Skill> skills;
+	private String woonplaats;
 	
+	public String getWoonplaats() {
+		return woonplaats;
+	}
+
+	public void setWoonplaats(String woonplaats) {
+		this.woonplaats = woonplaats;
+	}
+
 	//Entity related
 	private Long id;
 
@@ -56,7 +66,7 @@ public class Kandidaat {
 		this.leeftijd = leeftijd;
 	}
 	
-	@ManyToMany(mappedBy="kandidaten")
+	@ManyToMany(mappedBy="kandidaten", cascade=CascadeType.ALL)
 	//@JoinTable(name = "skill_kandidaat", joinColumns = @JoinColumn(name = "id"))
 	public List<Skill> getSkills() {
 		return skills;
