@@ -1,5 +1,7 @@
 package nl.jf.servlets;
 
+import javax.swing.JOptionPane;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -44,14 +46,22 @@ public class KandidaatController {
 	
 	@RequestMapping(value="/test", method=RequestMethod.GET)
 	public @ResponseBody String test(){
-		
 		SkillDao.addSkill(2L,2L);		
 		return "Ok";
 	}
 	
 	@RequestMapping(value="/home", method=RequestMethod.POST)
 	public String create(Model model, String naam, int leeftijd, String woonplaats){
-		KandidaatDao.create(naam, leeftijd, woonplaats);
+		if (naam.equals("")){
+			JOptionPane.showMessageDialog(null, "Geen naam ingevuld!", "Error",
+                    JOptionPane.ERROR_MESSAGE);	}
+		else if (!(leeftijd<68 && leeftijd>16)){
+			JOptionPane.showMessageDialog(null, "Geen geldige leeftijd!", "Error",
+	                JOptionPane.ERROR_MESSAGE);	}
+		else if (woonplaats instanceof String && (!(woonplaats.equals("")))){		
+			KandidaatDao.create(naam, leeftijd, woonplaats);}
+		else {JOptionPane.showMessageDialog(null, "Ongeldige invoer woonplaats!", "Error",
+                JOptionPane.ERROR_MESSAGE);	}		
 		return "redirect:/home";
 	}
 	

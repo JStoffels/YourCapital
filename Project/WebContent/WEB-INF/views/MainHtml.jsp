@@ -60,17 +60,17 @@
 		<form:label path="naam">
 		<p>Naam:</p>
 		</form:label>
-		<form:input path="naam" value=".."/>
+		<form:input path="naam" value=""/>
 		
 		<form:label path="leeftijd">
 		<p>Leeftijd:</p>
 		</form:label>
-		<form:input path="leeftijd" value=".."/>	
+		<form:input path="leeftijd" value=""/>	
 		
 		<form:label path="woonplaats">
 		<p>Woonplaats:</p>
 		</form:label>
-		<form:input path="woonplaats" value=".."/>	
+		<form:input path="woonplaats" value=""/>	
 			
 		<p></p>
 		<input type="submit" value="Add">

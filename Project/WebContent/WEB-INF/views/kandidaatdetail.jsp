@@ -26,7 +26,7 @@
 			<form:label path="naam">
 				<p>Skill toevoegen:</p>
 			</form:label>
-			<form:input path="naam" value=".." />
+			<form:input path="naam" value="" />
 				<p></p>
 			<input type="submit" value="Voeg toe">
 		</form:form>
