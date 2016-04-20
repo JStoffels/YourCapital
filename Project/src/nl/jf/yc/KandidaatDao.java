@@ -36,7 +36,7 @@ public class KandidaatDao {
 		return kandidaten;
 	}
 		
-	// haalt de lijst met skills op uit de database
+	/*// haalt de lijst met skills op uit de database
 	public static List<Kandidaat> allNaam(String naam){
 		EntityManager em = emf.createEntityManager();
 		EntityTransaction t = em.getTransaction();
@@ -45,7 +45,7 @@ public class KandidaatDao {
 		t.commit();
 		em.close();
 		return k;
-	}
+	}*/
 	
 	// verwijdert een kandidaat object uit de database
 	public static void remove(Long id){

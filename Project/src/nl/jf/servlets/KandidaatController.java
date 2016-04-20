@@ -36,12 +36,12 @@ public class KandidaatController {
 		return "index";
 	}
 	
-	@RequestMapping(value="/zoek", method=RequestMethod.GET)
+	/*@RequestMapping(value="/zoek", method=RequestMethod.GET)
 	public String zoekhtml(Model model, String naam){
 		model.addAttribute("kandidaten", KandidaatDao.all());
 		model.addAttribute("namen", naam);
 		return "ZoekHtml";
-	}
+	}*/
 	
 	
 	@RequestMapping(value="/test", method=RequestMethod.GET)
@@ -55,30 +55,31 @@ public class KandidaatController {
 		
 		try{ Integer.parseInt(leeftijd); }
 		catch (NumberFormatException e){ 
-			JOptionPane.showMessageDialog(null, "Geen geldige invoer!", "Error",
-                    JOptionPane.ERROR_MESSAGE);	
+			JOptionPane.showMessageDialog(null, "Geen geldige invoer!", "Error", JOptionPane.ERROR_MESSAGE);	
 			return "redirect:/home";}
 		
 		int x = Integer.parseInt(leeftijd);
 		
 		if (naam.equals("")){
-			JOptionPane.showMessageDialog(null, "Geen naam ingevuld!", "Error",
-                    JOptionPane.ERROR_MESSAGE);	}
+			JOptionPane.showMessageDialog(null, "Geen naam ingevuld!", "Error", JOptionPane.ERROR_MESSAGE);	}
 		else if (!(x<68 && x>16)){
-			JOptionPane.showMessageDialog(null, "Geen geldige leeftijd!", "Error",
-	                JOptionPane.ERROR_MESSAGE);	}
+			JOptionPane.showMessageDialog(null, "Geen geldige leeftijd!", "Error", JOptionPane.ERROR_MESSAGE); }
 		else if (woonplaats instanceof String && (!(woonplaats.equals("")))){		
 			KandidaatDao.create(naam, Integer.toString(x), woonplaats);}
-		else {JOptionPane.showMessageDialog(null, "Ongeldige invoer woonplaats!", "Error",
-                JOptionPane.ERROR_MESSAGE);	}		
+		else {JOptionPane.showMessageDialog(null, "Ongeldige invoer woonplaats!", "Error", JOptionPane.ERROR_MESSAGE); } 		
 		return "redirect:/home";
 	}
 	
-	@RequestMapping(value="/zoek", method=RequestMethod.POST)
-	public String search(Model model, String naam){
+	@RequestMapping(value="/zoek", method=RequestMethod.GET)
+	public String search(Model model, String naam, String leeftijd, String woonplaats){
+		model.addAttribute("kandidaten", KandidaatDao.all());
 		model.addAttribute("namen", naam);
+		model.addAttribute("leeftijd", leeftijd);
+		model.addAttribute("woonplaats", woonplaats);
 		return "ZoekHtml";
 	}
+	
+	
 	
 	@RequestMapping(value="/delete/{id}")
 	public String deleteView(@PathVariable String id){

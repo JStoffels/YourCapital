@@ -16,13 +16,23 @@
 <body>
 	<h2>Zoekscherm...</h2>
 	<p></p>
-	<form:form id="form" method="get" modelAttribute="Kandidaat">
+	<form:form id="form" method="get" modelAttribute="kandidaat">
 		
 		<p>Kandidaat zoeken:</p>
 		<form:label path="naam">
 		<p>Naam:</p>
 		</form:label>
 		<form:input path="naam" value=""/>
+		
+		<form:label path="leeftijd">
+		<p>Leeftijd:</p>
+		</form:label>
+		<form:input path="leeftijd" value=""/>	
+		
+		<form:label path="woonplaats">
+		<p>Woonplaats:</p>
+		</form:label>
+		<form:input path="woonplaats" value=""/>	
 			
 		<p></p>
 		<input type="submit" value="Search">
@@ -31,9 +41,16 @@
 	<p>Resultaat:</p>
 	<c:forEach items="${kandidaten}" var="kandidaat">		
 			<c:if test="${namen == kandidaat.naam}">
-			<p>${kandidaat.id}, ${kandidaat.naam}</p>
+			<p>ID: ${kandidaat.id}<br> Naam: ${kandidaat.naam}<br> Leeftijd: ${kandidaat.leeftijd}<br> Woonplaats: ${kandidaat.woonplaats}
+			</c:if>		
+			<c:if test="${leeftijd == kandidaat.leeftijd}">
+			<p>ID: ${kandidaat.id}<br> Naam: ${kandidaat.naam}<br> Leeftijd: ${kandidaat.leeftijd}<br> Woonplaats: ${kandidaat.woonplaats}
+			</c:if>			
+			<c:if test="${woonplaats == kandidaat.woonplaats}">
+			<p>ID: ${kandidaat.id}<br> Naam: ${kandidaat.naam}<br> Leeftijd: ${kandidaat.leeftijd}<br> Woonplaats: ${kandidaat.woonplaats}
 			</c:if>
 	</c:forEach>		
+
 	<p>last update: 15 april</p>
 </body>
 </html>
