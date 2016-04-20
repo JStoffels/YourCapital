@@ -51,15 +51,24 @@ public class KandidaatController {
 	}
 	
 	@RequestMapping(value="/home", method=RequestMethod.POST)
-	public String create(Model model, String naam, int leeftijd, String woonplaats){
+	public String create(Model model, String naam, String leeftijd, String woonplaats){
+		
+		try{ Integer.parseInt(leeftijd); }
+		catch (NumberFormatException e){ 
+			JOptionPane.showMessageDialog(null, "Geen geldige invoer!", "Error",
+                    JOptionPane.ERROR_MESSAGE);	
+			return "redirect:/home";}
+		
+		int x = Integer.parseInt(leeftijd);
+		
 		if (naam.equals("")){
 			JOptionPane.showMessageDialog(null, "Geen naam ingevuld!", "Error",
                     JOptionPane.ERROR_MESSAGE);	}
-		else if (!(leeftijd<68 && leeftijd>16)){
+		else if (!(x<68 && x>16)){
 			JOptionPane.showMessageDialog(null, "Geen geldige leeftijd!", "Error",
 	                JOptionPane.ERROR_MESSAGE);	}
 		else if (woonplaats instanceof String && (!(woonplaats.equals("")))){		
-			KandidaatDao.create(naam, leeftijd, woonplaats);}
+			KandidaatDao.create(naam, Integer.toString(x), woonplaats);}
 		else {JOptionPane.showMessageDialog(null, "Ongeldige invoer woonplaats!", "Error",
                 JOptionPane.ERROR_MESSAGE);	}		
 		return "redirect:/home";

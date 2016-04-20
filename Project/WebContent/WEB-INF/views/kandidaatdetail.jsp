@@ -14,8 +14,8 @@
 <title>Kandidaat overzicht</title>
 </head>
 <body>
-
-		<h1>Kandidaat: ${kandidaat.naam}</h1>
+	
+	<h1>Kandidaat: ${kandidaat.naam}</h1>
 		<p>Leeftijd: ${kandidaat.leeftijd}</p>
 		<p>Kandidaat ID: ${kandidaat.id}</p>
 		<p>Woonplaats: ${kandidaat.woonplaats}</p>
@@ -24,13 +24,14 @@
 			
 		<form:form id="form" method="post" modelAttribute="kandidaat">
 			<form:label path="naam">
-				<p>Skill toevoegen:</p>
+				
 			</form:label>
-			<form:input path="naam" value="" />
+			<form:input path="naam" value="Voeg vaardigheid toe..." onFocus="value=''"/>
+			
 				<p></p>
 			<input type="submit" value="Voeg toe">
 		</form:form>
-		<p>Skill verwijderen:</p>
+		<p></p>
 		<c:forEach items="${skills}" var="skill">
 			<li>"${skill.naam}"
 			<a href="<c:url value="/deleteskill/${skill.id}/${kandidaat.id}"/>">

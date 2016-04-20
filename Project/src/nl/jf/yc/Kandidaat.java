@@ -19,7 +19,7 @@ public class Kandidaat {
 	//fields
 	//@NotEmpty(message="Kan niet")
 	private String naam;
-	private int leeftijd;
+	private String leeftijd;
 	private List<Skill> skills;
 	private String woonplaats;
 	
@@ -56,16 +56,15 @@ public class Kandidaat {
 	}
 
 	//Leeftijd
-	public int getLeeftijd(){
+	public String getLeeftijd(){
 		return this.leeftijd;
 	}
 	
-	public void setLeeftijd(int leeftijd) {
+	public void setLeeftijd(String leeftijd) {
 		this.leeftijd = leeftijd;
 	}
 	
 	@ManyToMany(mappedBy="kandidaten", cascade=CascadeType.ALL)
-	//@JoinTable(name = "skill_kandidaat", joinColumns = @JoinColumn(name = "id"))
 	public List<Skill> getSkills() {
 		return skills;
 	}
