@@ -53,7 +53,7 @@
 	.carouselItemInner
 	{
 		width:320px;
-		height:130px;
+		height:200px;
 		position:absolute;
 		background-color:rgba(255, 255, 255, .75);
 		border:10px solid rgba(255, 255, 255, .5);

@@ -7,54 +7,233 @@
 <!DOCTYPE html>
 <html>
 <head>
-<header>
-	<p><img src="http://vamers.com/wp-content/uploads/2013/08/Vamers-Games-LEGO-Marvel-Super-Heroes-Banner.jpg"/></p>
-	<h1><h1>
-</header>
+	<link rel="stylesheet" href="resources/bootstrap/css/bootstrap.min.css"  />
+	
+	
+		<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+		<script>
+		var root_url = '<c:url value="/" />';
+		function eternal(){
+			$('img').fadeToggle(4000, function(){
+				eternal();
+			});
+		}
+	
+		function onClick(){
+		$('img').click(function() {
+		       $(this).toggle(1000);
+		   });
+		}
+		
+		function createBtn(){
+			$(".crt").toggle(1000);
+		}
+	
+		window.onload = function(){
+			$(document).ready(function() {
+				onLeave();
+				onOver();
+				onClick();
+				$(".create_btn").click(createBtn);
+				$(".create_btn").on('click',function(){
+			        var r= $('<input type="button" value="new button"/>');
+			        $("body").append(r);
+			    });
+						//eternal();
+			});
+		}
+		</script>
+	
+	<style>
+	img {
+	    /*opacity: 0.4;
+	    /*filter: alpha(opacity=40); /* For IE8 and earlier */
+	    	/*background="http://vignette1.wikia.nocookie.net/disney/images/7/7e/Lego-marvel-superhero-Heroes_roster.png/revision/latest/scale-to-width-down/1024?cb=20150827225219"*/
+	    border-radius:1000px;
+	    border-style: inset;
+	    border-width: 2px;
+	    vertical-align: text-bottom;
+	} 
+	body {
+	    background-color: #324045;
+	} 
+	h2{
+		color:white;
+	}
+	#black{
+		color:black;
+	}
+	#maakVenster{
+	
+	    border-radius:10px;
+	    background-color:#26B0BF;
+	    margin-bottom:1%;
+	}
+	#maakVenster2{
+		border-style: solid;
+	    border-radius:10px;
+	    border-width: 2px;
+	    background-color:#B6BFC2;
+	    overflow:hidden;
+	}
+	#maakVenster3{
+		border-style: solid;
+	    border-radius:10px;
+	    border-width: 2px;
+	    background-color:#7E8587;
+	    position: relative;
+		float: left;
+	   	width: 300px;
+	   	margin-left:2%;
+	   	margin-top:2%;
+	   	margin-bottom:1%;
+	   	
+	}
+	#maakVenster3.a{
+		color: #7E8587;
+	}
+	#spacer{
+		margin-left:2%;
+	    margin-right:5%;
+	
+	}
+	#spacer2{
+		margin-left:5%;
+	    margin-right:5%;
+	    margin-bottom:5%;
+	    position: relative;
+		float: right;
+	   	width: 300px;
+	}
+	hr { 
+	    display: block;
+	    margin-top: 0.5em;
+	    margin-bottom: 0.5em;
+	    margin-left: auto;
+	    margin-right: auto;
+	    border-style: inset;
+	    border-width: 1px;
+		color:white;
+	} 
+	#left{
+		position: relative;
+		float: left;
+	}
+	#right{
+		position: relative;
+		align: right;
+		float: right;
+	}
+	#relative{
+	position:relative;
+	}
+	
+</style>
 <title>YourCapital Home Page</title>
 </head>
 <body>
-	<h2>Zoekscherm...</h2>
-	<p></p>
-	<form:form id="form" method="get" modelAttribute="kandidaat">
-		
-		<p>Kandidaat zoeken:</p>
-		<form:label path="naam">
-		<p>Naam:</p>
-		</form:label>
-		<form:input path="naam" value=""/>
-		
-		<form:label path="leeftijd">
-		<p>Leeftijd:</p>
-		</form:label>
-		<form:input path="leeftijd" value=""/>	
-		
-		<form:label path="woonplaats">
-		<p>Woonplaats:</p>
-		</form:label>
-		<form:input path="woonplaats" value=""/>	
-			
+	<div class="container">
+		<p align="center"><img src="http://vamers.com/wp-content/uploads/2013/08/Vamers-Games-LEGO-Marvel-Super-Heroes-Banner.jpg"/></p>
+				
+		<h2>Zoekscherm...</h2>
 		<p></p>
-		<input type="submit" value="Search">
-	</form:form>
-	<p></p>
-	<p>Resultaat:</p>
+		<div id="maakVenster">
+			<div id="spacer">
+				<form:form id="form" method="get" modelAttribute="kandidaat">
+				<div class="form-group">
+					<form:label path="naam">
+					<p>Naam:</p>
+					</form:label>
+					<form:input class="form-control" path="naam" value=""/>
+				</div>
+				<div class="form-group">
+					<form:label path="leeftijd">
+					<p>Leeftijd:</p>
+					</form:label>
+					<form:input class="form-control" path="leeftijd" value=""/>	
+				</div>
+				<div class="form-group">
+					<form:label path="woonplaats">
+					<p>Woonplaats:</p>
+					</form:label>
+					<form:input class="form-control" path="woonplaats" value=""/>	
+				</div>	
+				<p></p>
+				<p style="font-size:5px">&nbsp</p>
+			</div>
+		</div>
+			<input class="btn btn-lg btn-primary btn-block" type="submit" value="Zoek">
+		</form:form>
+		
+		<hr>
+		<p></p>
+		<h2>Resultaat:</h2>
+		<div id="maakVenster2">
+			<div id="spacer">
+				<form:form>
+				<c:forEach items="${kandidaten}" var="kandidaat">		
+					
+							<c:if test="${namen == kandidaat.naam}">
+								<div id="maakVenster3">
+									<div id="spacer">	
+										<p><a id="black" href="<c:url value="/kandidaat/${kandidaat.id}"/>"></p>
+										<img class="crt" align="left" style=" margin-right: 2%; border-style: inset; border-width: 2px; border-color: black; width:80px;height:80px;border-radius:15px;background-color:white;"src="${kandidaat.foto}"/>
+										<div id="relative">
+										
+										<strong>Naam: ${kandidaat.naam}</strong></a>
+										<br><strong>Leeftijd: ${kandidaat.leeftijd}</strong>
+										<br><strong>Woonplaats: ${kandidaat.woonplaats}</strong>							
+										</div>									
+										<a href="<c:url value="/delete/${kandidaat.id}"/>">
+										<div class="right">
+										</div>
+										<p style="font-size:1px">&nbsp</p>									</div>
+								</div>
+							</c:if>		
+							<c:if test="${leeftijd == kandidaat.leeftijd}">
+								<div id="maakVenster3">
+									<div id="spacer">	
+										<p><a id="black" href="<c:url value="/kandidaat/${kandidaat.id}"/>"></p>
+										<img class="crt" align="left" style=" margin-right: 2%; border-style: inset; border-width: 2px; border-color: black; width:80px;height:80px;border-radius:15px;background-color:white;"src="${kandidaat.foto}"/>
+										<div id="relative">
+										
+										<strong>Naam: ${kandidaat.naam}</strong></a>
+										<br><strong>Leeftijd: ${kandidaat.leeftijd}</strong>
+										<br><strong>Woonplaats: ${kandidaat.woonplaats}</strong>							
+										</div>									
+										<a href="<c:url value="/delete/${kandidaat.id}"/>">
+										<div class="right">
+										</div>
+										<p style="font-size:1px">&nbsp</p>									</div>
+																	</div>
+								</div>
+							</c:if>			
+							<c:if test="${woonplaats == kandidaat.woonplaats}">
+								<div id="maakVenster3">
+									<div id="spacer">	
+										<p><a id="black" href="<c:url value="/kandidaat/${kandidaat.id}"/>"></p>
+										<img class="crt" align="left" style=" margin-right: 2%; border-style: inset; border-width: 2px; border-color: black; width:80px;height:80px;border-radius:15px;background-color:white;"src="${kandidaat.foto}"/>
+										<div id="relative">
+										
+										<strong>Naam: ${kandidaat.naam}</strong></a>
+										<br><strong>Leeftijd: ${kandidaat.leeftijd}</strong>
+										<br><strong>Woonplaats: ${kandidaat.woonplaats}</strong>							
+										</div>									
+										<a href="<c:url value="/delete/${kandidaat.id}"/>">
+										<div class="right">
+										</div>
+										<p style="font-size:1px">&nbsp</p>									</div>
+																	</div>
+								</div>
+							</c:if>
+						
+				</c:forEach>	
+				</form:form>
+				</div>
+		</div>
+		
 	
-	<form:form>
-	<c:forEach items="${kandidaten}" var="kandidaat">		
-			<c:if test="${namen == kandidaat.naam}">
-			<p>ID: ${kandidaat.id}<br> Naam: ${kandidaat.naam}<br> Leeftijd: ${kandidaat.leeftijd}<br> Woonplaats: ${kandidaat.woonplaats}
-			</c:if>		
-			<c:if test="${leeftijd == kandidaat.leeftijd}">
-			<p>ID: ${kandidaat.id}<br> Naam: ${kandidaat.naam}<br> Leeftijd: ${kandidaat.leeftijd}<br> Woonplaats: ${kandidaat.woonplaats}
-			</c:if>			
-			<c:if test="${woonplaats == kandidaat.woonplaats}">
-			<p>ID: ${kandidaat.id}<br> Naam: ${kandidaat.naam}<br> Leeftijd: ${kandidaat.leeftijd}<br> Woonplaats: ${kandidaat.woonplaats}
-			</c:if>
-	</c:forEach>	
-	</form:form>
-	
-
-	<p>last update: 15 april</p>
+		<p>last update: 21 april</p>
+	</div>
 </body>
 </html>

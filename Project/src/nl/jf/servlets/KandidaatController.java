@@ -32,7 +32,12 @@ public class KandidaatController {
 	}
 
 	@RequestMapping("/carousel")
-	public String carousel() {
+	public String carousel(Model model, String naam, String leeftijd, String woonplaats, String foto) {
+		model.addAttribute("kandidaten", KandidaatDao.all());
+		model.addAttribute("namen", naam);
+		model.addAttribute("leeftijd", leeftijd);
+		model.addAttribute("woonplaats", woonplaats);
+		model.addAttribute("foto", foto);
 		return "index";
 	}
 
@@ -53,8 +58,8 @@ public class KandidaatController {
 	public String create(Model model, String naam, String leeftijd, String woonplaats, String foto) {
 		
 		foto = "http://10.2.22.50/Project/resources/img/" + ((int)(1 + (Math.random() * (63 - 1)))) + ".jpg";
-		
-		try {
+		KandidaatDao.create(naam, leeftijd, woonplaats, foto);
+		/*try {
 			Integer.parseInt(leeftijd);
 		} catch (NumberFormatException e) {
 			// JOptionPane.showMessageDialog(null, "Geen geldige invoer!",
@@ -74,11 +79,11 @@ public class KandidaatController {
 			// "Error", JOptionPane.ERROR_MESSAGE);
 			return "error";
 		} else if (woonplaats instanceof String && !(woonplaats.equals("")) && (woonplaats.length() <= 25)) {
-			KandidaatDao.create(naam, Integer.toString(x), woonplaats, foto);
+			
 		} else {// JOptionPane.showMessageDialog(null, "Ongeldige invoer
 				// woonplaats!", "Error", JOptionPane.ERROR_MESSAGE);
 			return "error";
-		}
+		}*/
 
 		return "redirect:/home";
 	}

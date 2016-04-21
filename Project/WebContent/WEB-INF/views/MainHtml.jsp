@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	<link rel="stylesheet" href="resources/bootstrap/css/bootstrap.min.css"  />
+	<link rel="stylesheet" href="resources/bootstrap/css/bootstrap.min.css"/>
 	
 	
 		<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
@@ -127,6 +127,9 @@
 	#relative{
 	position:relative;
 	}
+	#smallbtn{
+	width: 300px;
+	}
 	
 </style>
 	
@@ -135,8 +138,9 @@
 	<body>
 			<div class="container">
 				<p align="center"><img src="http://vamers.com/wp-content/uploads/2013/08/Vamers-Games-LEGO-Marvel-Super-Heroes-Banner.jpg"/></p>
-			
-				<h2>Kandidaat toevoegen</h2>
+			 	
+				<h2>Kandidaat toevoegen </h2>
+				
 				<p></p>
 				<div id="maakVenster">
 					<div id="spacer">
@@ -151,7 +155,7 @@
 								<form:label path="leeftijd">
 								<p>Leeftijd:</p>
 								</form:label>
-								<form:input class="form-control" path="leeftijd" value="" type="number" maxlength="2" required="required" min="18" max="67"/>	
+								<form:input class="form-control" path="leeftijd" value="" type="number" required="required" min="18" max="67" maxlength="2"/>	
 							</div>
 							<div class="form-group">
 								<form:label path="woonplaats">
@@ -168,10 +172,15 @@
 				</div>
 				
 				<input class="btn btn-lg btn-primary btn-block" type="submit" value="Toevoegen">
+	
 				</form:form>
 				
 				<hr>
 				<p></p>
+				<a href="http://10.2.22.50/Project/zoek"><form class="btn btn-lg btn-primary btn-block" id="right" action="/Project/zoek">Zoekpagina</form></a>
+				
+			 	<a href="http://10.2.22.50/Project/carousel"><form class="btn btn-lg btn-primary btn-block" id="right" action="/Project/carousel">Carousel</form></a>
+				
 				<h2>Huidige Kandidaten</h2>
 				<div id="maakVenster2">
 					<div id="spacer">
@@ -198,7 +207,7 @@
 				</div>
 				<p>Last update: 21 april 2016</p>
 					<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-				<script src="resources/bootstrap/js/bootstrap.min.js" ></script>
+				<script src="resources/bootstrap/js/bootstrap.min.js"></script>
 			</div>
 	</body>
 </html>
