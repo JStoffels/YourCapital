@@ -13,58 +13,51 @@ import org.hibernate.annotations.GenericGenerator;
 @Entity
 public class Kandidaat {
 
-	//default constructor, want bean
-	public Kandidaat(){}
-	
-	//fields
-	//@NotEmpty(message="Kan niet")
+	// default constructor, want bean
+	public Kandidaat() {
+	}
+
+	// fields
 	private String naam;
 	private String leeftijd;
 	private List<Skill> skills;
 	private String woonplaats;
-	
-	public String getWoonplaats() {
-		return woonplaats;
-	}
+	private String foto;
 
-	public void setWoonplaats(String woonplaats) {
-		this.woonplaats = woonplaats;
-	}
-
-	//Entity related
+	// Entity related
 	private Long id;
 
 	@Id
-	@GeneratedValue(generator="increment")
-	@GenericGenerator(name="increment", strategy = "increment")
+	@GeneratedValue(generator = "increment")
+	@GenericGenerator(name = "increment", strategy = "increment")
 	public Long getId() {
-	    return id;
+		return id;
 	}
-	
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
-	//getters and setters
-	//Naam
-	public String getNaam(){
+
+	// getters and setters
+	// Naam
+	public String getNaam() {
 		return this.naam;
 	}
-		
+
 	public void setNaam(String naam) {
 		this.naam = naam;
 	}
 
-	//Leeftijd
-	public String getLeeftijd(){
+	// Leeftijd
+	public String getLeeftijd() {
 		return this.leeftijd;
 	}
-	
+
 	public void setLeeftijd(String leeftijd) {
 		this.leeftijd = leeftijd;
 	}
-	
-	@ManyToMany(mappedBy="kandidaten", cascade=CascadeType.ALL)
+
+	@ManyToMany(mappedBy = "kandidaten", cascade = CascadeType.ALL)
 	public List<Skill> getSkills() {
 		return skills;
 	}
@@ -73,4 +66,19 @@ public class Kandidaat {
 		this.skills = skills;
 	}
 
+	public String getFoto() {
+		return foto;
+	}
+
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}
+
+	public String getWoonplaats() {
+		return woonplaats;
+	}
+
+	public void setWoonplaats(String woonplaats) {
+		this.woonplaats = woonplaats;
+	}
 }

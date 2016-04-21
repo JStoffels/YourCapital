@@ -11,11 +11,12 @@ public class KandidaatDao {
 	private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("kandidaten");
 
 	// maakt een kandidaat object in de database aan
-	public static Kandidaat create(String naam, String leeftijd, String woonplaats) {
+	public static Kandidaat create(String naam, String leeftijd, String woonplaats, String foto) {
 		Kandidaat k = new Kandidaat();
 		k.setNaam(naam);
 		k.setLeeftijd(leeftijd);
 		k.setWoonplaats(woonplaats);
+		k.setFoto(foto);
 		EntityManager em = emf.createEntityManager();
 		EntityTransaction t = em.getTransaction();
 		t.begin();
@@ -36,17 +37,6 @@ public class KandidaatDao {
 		return kandidaten;
 	}
 		
-	/*// haalt de lijst met skills op uit de database
-	public static List<Kandidaat> allNaam(String naam){
-		EntityManager em = emf.createEntityManager();
-		EntityTransaction t = em.getTransaction();
-		t.begin();
-		List<Kandidaat> k = em.createQuery("from Kandidaat where k.naam = naam", Kandidaat.class).getResultList();
-		t.commit();
-		em.close();
-		return k;
-	}*/
-	
 	// verwijdert een kandidaat object uit de database
 	public static void remove(Long id){
 		EntityManager em = emf.createEntityManager();

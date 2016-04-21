@@ -19,109 +19,117 @@ import nl.jf.yc.SkillDao;
 @SessionAttributes("Kandidaat")
 @Controller
 public class KandidaatController {
-		
+
 	@ModelAttribute("kandidaat")
 	public Kandidaat createKandidaat() {
 		return new Kandidaat();
 	}
-	
+
 	@RequestMapping("/home")
 	public String homeMvc(Model model) {
 		model.addAttribute("kandidaten", KandidaatDao.all());
 		return "MainHtml";
 	}
-	
+
 	@RequestMapping("/carousel")
-	public String carousel(){
+	public String carousel() {
 		return "index";
 	}
-	
-	/*@RequestMapping(value="/zoek", method=RequestMethod.GET)
-	public String zoekhtml(Model model, String naam){
-		model.addAttribute("kandidaten", KandidaatDao.all());
-		model.addAttribute("namen", naam);
-		return "ZoekHtml";
-	}*/
-	
-	
-	@RequestMapping(value="/test", method=RequestMethod.GET)
-	public @ResponseBody String test(){
-		SkillDao.addSkill(2L,2L);		
-		return "Ok";
-	}
-	
-	@RequestMapping(value="/home", method=RequestMethod.POST)
-	public String create(Model model, String naam, String leeftijd, String woonplaats){
+
+	/*
+	 * @RequestMapping(value="/zoek", method=RequestMethod.GET) public String
+	 * zoekhtml(Model model, String naam){ model.addAttribute("kandidaten",
+	 * KandidaatDao.all()); model.addAttribute("namen", naam); return
+	 * "ZoekHtml"; }
+	 */
+
+	/*
+	 * @RequestMapping(value="/test", method=RequestMethod.GET)
+	 * public @ResponseBody String test(){ SkillDao.addSkill(2L,2L); return
+	 * "Ok"; }
+	 */
+
+	@RequestMapping(value = "/home", method = RequestMethod.POST)
+	public String create(Model model, String naam, String leeftijd, String woonplaats, String foto) {
 		
-		try{ Integer.parseInt(leeftijd); }
-		catch (NumberFormatException e){ 
-			JOptionPane.showMessageDialog(null, "Geen geldige invoer!", "Error", JOptionPane.ERROR_MESSAGE);	
-			return "redirect:/home";}
+		foto = "http://10.2.22.50/Project/resources/img/" + ((int)(1 + (Math.random() * (63 - 1)))) + ".jpg";
 		
+		try {
+			Integer.parseInt(leeftijd);
+		} catch (NumberFormatException e) {
+			// JOptionPane.showMessageDialog(null, "Geen geldige invoer!",
+			// "Error", JOptionPane.ERROR_MESSAGE);
+			// model.addAttribute("error", "error msg");
+			return "error";
+		}
+
 		int x = Integer.parseInt(leeftijd);
-		
-		if (naam.equals("")){
-			JOptionPane.showMessageDialog(null, "Geen naam ingevuld!", "Error", JOptionPane.ERROR_MESSAGE);	}
-		else if (!(x<68 && x>16)){
-			JOptionPane.showMessageDialog(null, "Geen geldige leeftijd!", "Error", JOptionPane.ERROR_MESSAGE); }
-		else if (woonplaats instanceof String && (!(woonplaats.equals("")))){		
-			KandidaatDao.create(naam, Integer.toString(x), woonplaats);}
-		else {JOptionPane.showMessageDialog(null, "Ongeldige invoer woonplaats!", "Error", JOptionPane.ERROR_MESSAGE); } 		
+
+		if (naam.equals("") || (naam.length() >= 25)) {
+			// JOptionPane.showMessageDialog(null, "Geen naam ingevuld!",
+			// "Error", JOptionPane.ERROR_MESSAGE);
+			return "error";
+		} else if (!(x < 68 && x > 16)) {
+			// JOptionPane.showMessageDialog(null, "Geen geldige leeftijd!",
+			// "Error", JOptionPane.ERROR_MESSAGE);
+			return "error";
+		} else if (woonplaats instanceof String && !(woonplaats.equals("")) && (woonplaats.length() <= 25)) {
+			KandidaatDao.create(naam, Integer.toString(x), woonplaats, foto);
+		} else {// JOptionPane.showMessageDialog(null, "Ongeldige invoer
+				// woonplaats!", "Error", JOptionPane.ERROR_MESSAGE);
+			return "error";
+		}
+
 		return "redirect:/home";
 	}
-	
-	@RequestMapping(value="/zoek", method=RequestMethod.GET)
-	public String search(Model model, String naam, String leeftijd, String woonplaats){
+
+	@RequestMapping(value = "/zoek", method = RequestMethod.GET)
+	public String search(Model model, String naam, String leeftijd, String woonplaats) {
 		model.addAttribute("kandidaten", KandidaatDao.all());
 		model.addAttribute("namen", naam);
 		model.addAttribute("leeftijd", leeftijd);
 		model.addAttribute("woonplaats", woonplaats);
 		return "ZoekHtml";
 	}
-	
-	
-	
-	@RequestMapping(value="/delete/{id}")
-	public String deleteView(@PathVariable String id){
+
+	@RequestMapping(value = "/delete/{id}")
+	public String deleteView(@PathVariable String id) {
 		Long key;
-		try{
+		try {
 			key = Long.valueOf(id);
-		}
-		catch(NumberFormatException e){
+		} catch (NumberFormatException e) {
 			// id is geen getal? error 404
 			return null;
 		}
 		KandidaatDao.remove(key);
 		return "redirect:/home";
 	}
-	
-	@RequestMapping(value="/deleteskill/{sid}/{kid}")
-	public String deleteSkill(@PathVariable String sid, @PathVariable String kid){
+
+	@RequestMapping(value = "/deleteskill/{sid}/{kid}")
+	public String deleteSkill(@PathVariable String sid, @PathVariable String kid) {
 		Long key;
-		try{
+		try {
 			key = Long.valueOf(sid);
-		}
-		catch(NumberFormatException e){
+		} catch (NumberFormatException e) {
 			// id is geen getal? error 404
 			return null;
 		}
 		SkillDao.remove(key);
 		return "redirect:/kandidaat/{kid}";
 	}
-	
-	@RequestMapping(value="/kandidaat/{id}")
-	public String detailView(@PathVariable long id, Model model){
+
+	@RequestMapping(value = "/kandidaat/{id}")
+	public String detailView(@PathVariable long id, Model model) {
 		Long key;
 		model.addAttribute("skills", SkillDao.all(id));
-		try{
+		try {
 			key = Long.valueOf(id);
-		}
-		catch(NumberFormatException e){
+		} catch (NumberFormatException e) {
 			// id is geen getal? error 404
 			return null;
 		}
 		Kandidaat k = KandidaatDao.find(key);
-		if(k == null){
+		if (k == null) {
 			// geen kandidaat met gegeven id? error 404
 			return null;
 		} else {
@@ -129,14 +137,14 @@ public class KandidaatController {
 			return "kandidaatdetail";
 		}
 	}
-	
-	@RequestMapping(value="/kandidaat/{id}", method=RequestMethod.POST)
-	public String createSkill(@PathVariable long id, Model model, String naam){
+
+	@RequestMapping(value = "/kandidaat/{id}", method = RequestMethod.POST)
+	public String createSkill(@PathVariable long id, Model model, String naam) {
 		Skill s = SkillDao.create(naam, id);
 		SkillDao.addSkill(id, s.getId());
-		
-		//SkillDao.addSkill(x, id, naam);
-			return "redirect:/kandidaat/{id}";	
-	
+
+		// SkillDao.addSkill(x, id, naam);
+		return "redirect:/kandidaat/{id}";
+
 	}
 }

@@ -39,6 +39,8 @@
 	</form:form>
 	<p></p>
 	<p>Resultaat:</p>
+	
+	<form:form>
 	<c:forEach items="${kandidaten}" var="kandidaat">		
 			<c:if test="${namen == kandidaat.naam}">
 			<p>ID: ${kandidaat.id}<br> Naam: ${kandidaat.naam}<br> Leeftijd: ${kandidaat.leeftijd}<br> Woonplaats: ${kandidaat.woonplaats}
@@ -49,7 +51,9 @@
 			<c:if test="${woonplaats == kandidaat.woonplaats}">
 			<p>ID: ${kandidaat.id}<br> Naam: ${kandidaat.naam}<br> Leeftijd: ${kandidaat.leeftijd}<br> Woonplaats: ${kandidaat.woonplaats}
 			</c:if>
-	</c:forEach>		
+	</c:forEach>	
+	</form:form>
+	
 
 	<p>last update: 15 april</p>
 </body>

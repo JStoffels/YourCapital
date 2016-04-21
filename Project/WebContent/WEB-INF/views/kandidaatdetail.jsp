@@ -15,12 +15,17 @@
 </head>
 <body>
 	
+	<img src="${kandidaat.foto}" height="350px">
 	<h1>Kandidaat: ${kandidaat.naam}</h1>
 		<p>Leeftijd: ${kandidaat.leeftijd}</p>
 		<p>Kandidaat ID: ${kandidaat.id}</p>
 		<p>Woonplaats: ${kandidaat.woonplaats}</p>
 		<p>Skills: <c:forEach items="${skills}" var="skill">
-			<li>"${skill.naam}"</li></c:forEach></p>
+			<li>"${skill.naam}"
+			<a href="<c:url value="/deleteskill/${skill.id}/${kandidaat.id}"/>">
+			<input type="submit" value="Delete"></a></li>
+			<p>
+		</c:forEach>
 			
 		<form:form id="form" method="post" modelAttribute="kandidaat">
 			<form:label path="naam">
@@ -32,12 +37,7 @@
 			<input type="submit" value="Voeg toe">
 		</form:form>
 		<p></p>
-		<c:forEach items="${skills}" var="skill">
-			<li>"${skill.naam}"
-			<a href="<c:url value="/deleteskill/${skill.id}/${kandidaat.id}"/>">
-			<input type="submit" value="Delete"></a></li>
-		</c:forEach>
-		
+				
 	<script>
 		window.onload = function() {
 		var h1 = document.getElementsByTagName('h1')[0];

@@ -18,62 +18,65 @@ public class SkillDao {
 		t.begin();
 		Kandidaat k = em.find(Kandidaat.class, id);
 		k.getSkills().add(s);
-		//s.getKandidaten().add(k);
+		// s.getKandidaten().add(k);
 		em.persist(s);
 		em.persist(k);
 		t.commit();
-		em.close();		
+		em.close();
 		return s;
 	}
-	
-	// maakt een skill object in de database aan en voegt deze toe aan de kandidaat
-	public static void addSkill(long kandidaat_id, long skill_id){
-		
+
+	// maakt een skill object in de database aan en voegt deze toe aan de
+	// kandidaat
+	public static void addSkill(long kandidaat_id, long skill_id) {
+
 		EntityManager em = emf.createEntityManager();
 		EntityTransaction t = em.getTransaction();
 		t.begin();
-		
+
 		Kandidaat k = em.find(Kandidaat.class, kandidaat_id);
-		Skill s = em.find(Skill.class,skill_id);
-		if(k == null || s == null){ 
+		Skill s = em.find(Skill.class, skill_id);
+		if (k == null || s == null) {
 			System.out.println("addSkill(): kandidaat of skill bestaat niet!!");
-			return;	}
-		//k.getSkills().add(s);
-        s.getKandidaten().add(k);		
+			return;
+		}
+		// k.getSkills().add(s);
+		s.getKandidaten().add(k);
 		em.persist(k);
 		t.commit();
 		em.close();
 	}
-	
+
 	// haalt de lijst met skills op uit de database
-	public static List<Skill> all(long id){
+	public static List<Skill> all(long id) {
 		EntityManager em = emf.createEntityManager();
 		EntityTransaction t = em.getTransaction();
 		t.begin();
-		//List<Skill> s = em.createQuery("SELECT Skill from Kandidaat where kandidaat_id=:id", Skill.class).getResultList();
-		//List<Skill> s = Skill.(em.find(Kandidaat.class, id));
+		// List<Skill> s = em.createQuery("SELECT Skill from Kandidaat where
+		// kandidaat_id=:id", Skill.class).getResultList();
+		// List<Skill> s = Skill.(em.find(Kandidaat.class, id));
 		Kandidaat k = em.find(Kandidaat.class, id);
 		List<Skill> s = k.getSkills();
 		t.commit();
-	
+
 		return s;
 	}
-	
+
 	// verwijdert een skill object uit de database
-	public static void remove(Long id){
+	public static void remove(Long id) {
 		EntityManager em = emf.createEntityManager();
 		EntityTransaction t = em.getTransaction();
 		t.begin();
 		Skill s = em.find(Skill.class, id);
-		if(s != null){
-			em.remove( s );
+		if (s != null) {
+			em.remove(s);
 		}
 		t.commit();
 		em.close();
 	}
-	
+
 	// zoekt een skill object in de database
-	public static Skill find(Long id){
+	public static Skill find(Long id) {
 		EntityManager em = emf.createEntityManager();
 		EntityTransaction t = em.getTransaction();
 		t.begin();
