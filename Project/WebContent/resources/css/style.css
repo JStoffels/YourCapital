@@ -16,6 +16,11 @@
 		backface-visibility:hidden;*/
 	}
 	
+	#imgborder{
+		border-radius:25px;
+		border: 2px solid black;
+	}
+	
 	#contentContainer
 	{
 		position:absolute;
@@ -57,6 +62,7 @@
 		position:absolute;
 		background-color:rgba(255, 255, 255, .75);
 		border:10px solid rgba(255, 255, 255, .5);
+		border-radius:25px;
 		color:aqua;
 		font-size:72px;
 		left:50%;

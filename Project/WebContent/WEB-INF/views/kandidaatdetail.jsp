@@ -18,12 +18,9 @@
 			<img src="http://10.2.22.50/Project/resources/img/Banner.jpg" />
 		</p>
 
-
-		<a href="http://10.2.22.50/Project/zoek"><form
-				class="btn btn-lg btn-primary btn-block" action="/Project/zoek">Zoekpagina</form></a>
+		<a href="http://10.2.22.50/Project/zoek"><form class="btn btn-lg btn-primary btn-block" action="/Project/zoek">Zoekpagina</form></a>
 		<p></p>
-		<a href="http://10.2.22.50/Project/carousel"><form
-				class="btn btn-lg btn-primary btn-block" action="/Project/carousel">Carousel</form></a>
+		<a href="http://10.2.22.50/Project/carousel"><form class="btn btn-lg btn-primary btn-block" action="/Project/carousel">Carousel</form></a>
 		<p></p>
 		<div id="maakVenster2">
 
@@ -36,10 +33,10 @@
 			<p>Geslacht: ${kandidaat.geslacht}</p>
 			<p>Kandidaat ID: ${kandidaat.id}</p>
 			<p>Woonplaats: ${kandidaat.woonplaats}</p>
+			<p>Max reistafstand: ${kandidaat.maxreisafstand}</p>
 			<p>Quote: ${kandidaat.quote}</p>
 			<p>Notes: ${kandidaat.notes}</p>
-			<p>
-				<strong>Skills: </strong>
+			<p><strong>Skills: </strong>
 				<c:forEach items="${skills}" var="skill">
 					<li>"${skill.naam}" <a
 						href="<c:url value="/deleteskill/${skill.id}/${kandidaat.id}"/>">
@@ -59,13 +56,9 @@
 					<input type="submit" value="Voeg toe">
 				</form:form>
 			<p></p>
-
 			<p></p>
 		</div>
 	</div>
-
-
-
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="resources/bootstrap/js/bootstrap.min.js"></script>

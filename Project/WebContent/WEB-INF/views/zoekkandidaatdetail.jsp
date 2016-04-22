@@ -32,9 +32,10 @@
 			<p>Geslacht: ${kandidaat.geslacht}</p>
 			<p>Kandidaat ID: ${kandidaat.id}</p>
 			<p>Woonplaats: ${kandidaat.woonplaats}</p>
+			<p>Max reistafstand: ${kandidaat.maxreisafstand}</p>
 			<p>Quote: ${kandidaat.quote}</p>
 			<p>Notes: ${kandidaat.notes}</p>
-		<p><strong>Skills: </strong><c:forEach items="${skills}" var="skill">
+			<p><strong>Skills: </strong><c:forEach items="${skills}" var="skill">
 			<li>"${skill.naam}"
 			</li>
 			<p>

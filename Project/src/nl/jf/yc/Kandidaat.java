@@ -26,50 +26,8 @@ public class Kandidaat {
 	private String geslacht;
 	private String quote;
 	private String notes;
-	
-	public String getNotes() {
-		return notes;
-	}
-
-	public void setNotes(String notes) {
-		this.notes = notes;
-	}
-
-	public String getGeslacht() {
-		return geslacht;
-	}
-
-	public void setGeslacht(String geslacht) {
-		this.geslacht = geslacht;
-	}
-
-	public String getQuote() {
-		return quote;
-	}
-
-	public void setQuote(String quote) {
-		this.quote = quote;
-	}
-
-	public String getMaxreisafstand() {
-		return maxreisafstand;
-	}
-
-	public void setMaxreisafstand(String maxreisafstand) {
-		this.maxreisafstand = maxreisafstand;
-	}
-
-	public String getOpmerkingen() {
-		return opmerkingen;
-	}
-
-	public void setOpmerkingen(String opmerkingen) {
-		this.opmerkingen = opmerkingen;
-	}
-
 	private String maxreisafstand;
-	private String opmerkingen;
-
+	
 	// Entity related
 	private Long id;
 
@@ -126,5 +84,37 @@ public class Kandidaat {
 
 	public void setWoonplaats(String woonplaats) {
 		this.woonplaats = woonplaats;
+	}
+	
+	public String getNotes() {
+		return notes;
+	}
+
+	public void setNotes(String notes) {
+		this.notes = notes;
+	}
+
+	public String getGeslacht() {
+		return geslacht;
+	}
+
+	public void setGeslacht(String geslacht) {
+		this.geslacht = geslacht;
+	}
+
+	public String getQuote() {
+		return quote;
+	}
+
+	public void setQuote(String quote) {
+		this.quote = quote;
+	}
+
+	public String getMaxreisafstand() {
+		return maxreisafstand;
+	}
+
+	public void setMaxreisafstand(String maxreisafstand) {
+		this.maxreisafstand = maxreisafstand;
 	}
 }

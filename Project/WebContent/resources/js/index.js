@@ -5,9 +5,6 @@
 		var mouseZ = 0;
 		var addX = 0;
 		
-		
-		// fps counter created by: https://gist.github.com/sharkbrainguy/1156092,
-		// no need to create my own :)
 		var fps_counter = {
 			
 			tick: function () 
@@ -50,14 +47,12 @@
 			TweenMax.set(container, {perspective:600})
 			TweenMax.set(carousel, {z:-(radius)})
 			
-			// create carousel item props
-			
+			// create carousel item props			
 			for ( var i = 0; i < itemLength; i++ )
 			{
 				var $item = item.eq(i);
 				var $block = $item.find('.carouselItemInner');
 				
-        //thanks @chrisgannon!        
         TweenMax.set($item, {rotationY:rY * i, z:radius, transformOrigin:"50% 50% " + -radius + "px"});
 				
 				animateIn( $item, $block )						

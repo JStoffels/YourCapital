@@ -1,14 +1,11 @@
 package nl.jf.servlets;
 
-import javax.swing.JOptionPane;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import nl.jf.yc.Kandidaat;
@@ -41,50 +38,10 @@ public class KandidaatController {
 		return "index";
 	}
 
-	/*
-	 * @RequestMapping(value="/zoek", method=RequestMethod.GET) public String
-	 * zoekhtml(Model model, String naam){ model.addAttribute("kandidaten",
-	 * KandidaatDao.all()); model.addAttribute("namen", naam); return
-	 * "ZoekHtml"; }
-	 */
-
-	/*
-	 * @RequestMapping(value="/test", method=RequestMethod.GET)
-	 * public @ResponseBody String test(){ SkillDao.addSkill(2L,2L); return
-	 * "Ok"; }
-	 */
-
 	@RequestMapping(value = "/home", method = RequestMethod.POST)
 	public String create(Model model, String naam, String leeftijd, String woonplaats, String foto) {
-		
 		foto = "http://10.2.22.50/Project/resources/img/" + ((int)(1 + (Math.random() * (63 - 1)))) + ".jpg";
 		KandidaatDao.create(naam, leeftijd, woonplaats, foto);
-		/*try {
-			Integer.parseInt(leeftijd);
-		} catch (NumberFormatException e) {
-			// JOptionPane.showMessageDialog(null, "Geen geldige invoer!",
-			// "Error", JOptionPane.ERROR_MESSAGE);
-			// model.addAttribute("error", "error msg");
-			return "error";
-		}
-
-		int x = Integer.parseInt(leeftijd);
-
-		if (naam.equals("") || (naam.length() >= 25)) {
-			// JOptionPane.showMessageDialog(null, "Geen naam ingevuld!",
-			// "Error", JOptionPane.ERROR_MESSAGE);
-			return "error";
-		} else if (!(x < 68 && x > 16)) {
-			// JOptionPane.showMessageDialog(null, "Geen geldige leeftijd!",
-			// "Error", JOptionPane.ERROR_MESSAGE);
-			return "error";
-		} else if (woonplaats instanceof String && !(woonplaats.equals("")) && (woonplaats.length() <= 25)) {
-			
-		} else {// JOptionPane.showMessageDialog(null, "Ongeldige invoer
-				// woonplaats!", "Error", JOptionPane.ERROR_MESSAGE);
-			return "error";
-		}*/
-
 		return "redirect:/home";
 	}
 
@@ -167,9 +124,6 @@ public class KandidaatController {
 	public String createSkill(@PathVariable long id, Model model, String naam) {
 		Skill s = SkillDao.create(naam, id);
 		SkillDao.addSkill(id, s.getId());
-
-		// SkillDao.addSkill(x, id, naam);
 		return "redirect:/kandidaat/{id}";
-
 	}
 }

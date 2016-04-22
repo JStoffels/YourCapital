@@ -8,8 +8,7 @@ img {
 	border-radius: 1000px;
 	border-style: inset;
 	border-width: 2px;
-	vertical-align: text-bottom;
-	
+	vertical-align: text-bottom;	
 }
 
 body {
@@ -36,8 +35,7 @@ h2 {
 	border-width: 2px;
 	background-color: #B6BFC2;
 	overflow: hidden;
-	font-family: Verdana;
-	
+	font-family: Verdana;	
 }
 
 #maakVenster3 {
@@ -68,7 +66,7 @@ h2 {
         margin-bottom: 5%; 
         margin-top: 1%;
         font-family: verdana;
-    }
+ }
 
 
 #spacer {
