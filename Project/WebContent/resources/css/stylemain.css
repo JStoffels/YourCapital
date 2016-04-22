@@ -1,1 +1,107 @@
 @CHARSET "ISO-8859-1";
+@import url("http://localhost/Project/resources/bootstrap/css/bootstrap.min.css");
+
+img {
+	/*opacity: 0.4;
+	    /*filter: alpha(opacity=40); /* For IE8 and earlier */
+	/*background="http://vignette1.wikia.nocookie.net/disney/images/7/7e/Lego-marvel-superhero-Heroes_roster.png/revision/latest/scale-to-width-down/1024?cb=20150827225219"*/
+	border-radius: 1000px;
+	border-style: inset;
+	border-width: 2px;
+	vertical-align: text-bottom;
+}
+
+body {
+	background-color: #324045;
+}
+
+h2 {
+	color: white;
+}
+
+#black {
+	color: black;
+}
+
+#maakVenster {
+	border-radius: 10px;
+	background-color: #26B0BF;
+	margin-bottom: 1%;
+}
+
+#maakVenster2 {
+	border-style: solid;
+	border-radius: 10px;
+	border-width: 2px;
+	background-color: #B6BFC2;
+	overflow: hidden;
+}
+
+#maakVenster3 {
+	border-style: solid;
+	border-radius: 10px;
+	border-width: 2px;
+	background-color: #7E8587;
+	position: relative;
+	float: left;
+	width: 300px;
+	margin-left: 4.5%;
+	margin-top: 2%;
+	margin-bottom: 1%;
+}
+
+#maakVenster3.a {
+	color: #7E8587;
+}
+
+#spacer {
+	margin-left: 2%;
+	margin-right: 5%;
+}
+
+#spacer2 {
+	margin-left: 5%;
+	margin-right: 5%;
+	margin-bottom: 0%;
+	position: relative;
+	float: right;
+	width: 300px;
+}
+
+hr {
+	display: block;
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+	margin-left: auto;
+	margin-right: auto;
+	border-style: inset;
+	border-width: 1px;
+	color: white;
+}
+
+#left {
+	position: relative;
+	float: left;
+}
+
+#right {
+	position: relative;
+	align: right;
+	float: right;
+}
+
+#relative {
+	position: relative;
+}
+
+#smallbtn {
+	width: 300px;
+}
+
+#lineHeight {
+	line-height: 0.5;
+	border-style: solid;
+	border-width: 2px;
+	border-color: black;
+}
+

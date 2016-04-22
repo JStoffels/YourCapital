@@ -7,128 +7,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" href="resources/bootstrap/css/bootstrap.min.css"  />
-	
-	
-		<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-		<script>
-		var root_url = '<c:url value="/" />';
-		function eternal(){
-			$('img').fadeToggle(4000, function(){
-				eternal();
-			});
-		}
-	
-		function onClick(){
-		$('img').click(function() {
-		       $(this).toggle(1000);
-		   });
-		}
-		
-		function createBtn(){
-			$(".crt").toggle(1000);
-		}
-	
-		window.onload = function(){
-			$(document).ready(function() {
-				onLeave();
-				onOver();
-				onClick();
-				$(".create_btn").click(createBtn);
-				$(".create_btn").on('click',function(){
-			        var r= $('<input type="button" value="new button"/>');
-			        $("body").append(r);
-			    });
-						//eternal();
-			});
-		}
-		</script>
-	
-	<style>
-	img {
-	    /*opacity: 0.4;
-	    /*filter: alpha(opacity=40); /* For IE8 and earlier */
-	    	/*background="http://vignette1.wikia.nocookie.net/disney/images/7/7e/Lego-marvel-superhero-Heroes_roster.png/revision/latest/scale-to-width-down/1024?cb=20150827225219"*/
-	    border-radius:1000px;
-	    border-style: inset;
-	    border-width: 2px;
-	    vertical-align: text-bottom;
-	} 
-	body {
-	    background-color: #324045;
-	} 
-	h2{
-		color:white;
-	}
-	#black{
-		color:black;
-	}
-	#maakVenster{
-	
-	    border-radius:10px;
-	    background-color:#26B0BF;
-	    margin-bottom:1%;
-	}
-	#maakVenster2{
-		border-style: solid;
-	    border-radius:10px;
-	    border-width: 2px;
-	    background-color:#B6BFC2;
-	    overflow:hidden;
-	}
-	#maakVenster3{
-		border-style: solid;
-	    border-radius:10px;
-	    border-width: 2px;
-	    background-color:#7E8587;
-	    position: relative;
-		float: left;
-	   	width: 300px;
-	   	margin-left:2%;
-	   	margin-top:2%;
-	   	margin-bottom:1%;
-	   	
-	}
-	#maakVenster3.a{
-		color: #7E8587;
-	}
-	#spacer{
-		margin-left:2%;
-	    margin-right:5%;
-	
-	}
-	#spacer2{
-		margin-left:5%;
-	    margin-right:5%;
-	    margin-bottom:5%;
-	    position: relative;
-		float: right;
-	   	width: 300px;
-	}
-	hr { 
-	    display: block;
-	    margin-top: 0.5em;
-	    margin-bottom: 0.5em;
-	    margin-left: auto;
-	    margin-right: auto;
-	    border-style: inset;
-	    border-width: 1px;
-		color:white;
-	} 
-	#left{
-		position: relative;
-		float: left;
-	}
-	#right{
-		position: relative;
-		align: right;
-		float: right;
-	}
-	#relative{
-	position:relative;
-	}
-	
-</style>
+<link rel="stylesheet" href="resources/css/stylemain.css" />
+<script src="resources/js/jsmain.js" ></script>
 <title>YourCapital Home Page</title>
 </head>
 <body>
@@ -144,19 +24,19 @@
 					<form:label path="naam">
 					<p>Naam:</p>
 					</form:label>
-					<form:input class="form-control" path="naam" value=""/>
+					<form:input class="form-control" path="naam" value="" placeholder="naam" autofocus="autofocus" maxlength="25"/>
 				</div>
 				<div class="form-group">
 					<form:label path="leeftijd">
 					<p>Leeftijd:</p>
 					</form:label>
-					<form:input class="form-control" path="leeftijd" value=""/>	
+					<form:input class="form-control" path="leeftijd" value="" placeholder="leeftijd" oninput="maxLengthCheck(this)" maxlength="2" type="number" min="18" max="67"/>	
 				</div>
 				<div class="form-group">
 					<form:label path="woonplaats">
 					<p>Woonplaats:</p>
 					</form:label>
-					<form:input class="form-control" path="woonplaats" value=""/>	
+					<form:input class="form-control" placeholder="woonplaats" maxlength="25" path="woonplaats" value=""/>	
 				</div>	
 				<p></p>
 				<p style="font-size:5px">&nbsp</p>
