@@ -123,6 +123,26 @@ public class KandidaatController {
 		return "redirect:/kandidaat/{kid}";
 	}
 
+	@RequestMapping(value = "/zoekkandidaat/{id}")
+	public String zoekdetailView(@PathVariable long id, Model model) {
+		Long key;
+		model.addAttribute("skills", SkillDao.all(id));
+		try {
+			key = Long.valueOf(id);
+		} catch (NumberFormatException e) {
+			// id is geen getal? error 404
+			return null;
+		}
+		Kandidaat k = KandidaatDao.find(key);
+		if (k == null) {
+			// geen kandidaat met gegeven id? error 404
+			return null;
+		} else {
+			model.addAttribute("kandidaat", k);
+			return "zoekkandidaatdetail";
+		}
+	}
+	
 	@RequestMapping(value = "/kandidaat/{id}")
 	public String detailView(@PathVariable long id, Model model) {
 		Long key;

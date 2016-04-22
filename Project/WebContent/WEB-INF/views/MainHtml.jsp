@@ -96,10 +96,10 @@
 									${kandidaat.woonplaats}</strong>
 							</div>
 							<p style="font-size: 15px">&nbsp</p>
-							<a href="<c:url value="/delete/${kandidaat.id}"/>">
+							<a href="<c:url value="/kandidaat/${kandidaat.id}"/>">
 								<div class="right">
 									<input id="lineHeight" class="btn btn-lg btn-primary btn-block"
-										type="submit" value="Delete">
+										type="submit" value="Details">
 							</a>
 						</div>
 						<p style="font-size: 1px">&nbsp</p>

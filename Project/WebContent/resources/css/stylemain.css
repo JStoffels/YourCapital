@@ -9,6 +9,7 @@ img {
 	border-style: inset;
 	border-width: 2px;
 	vertical-align: text-bottom;
+	
 }
 
 body {
@@ -35,6 +36,8 @@ h2 {
 	border-width: 2px;
 	background-color: #B6BFC2;
 	overflow: hidden;
+	font-family: Verdana;
+	
 }
 
 #maakVenster3 {
@@ -53,6 +56,20 @@ h2 {
 #maakVenster3.a {
 	color: #7E8587;
 }
+
+#maakVenster4 {
+        border-style: solid;
+        border-radius:10px;
+        border-width: 2px;
+        background-color:#B6BFC2;
+        overflow:hidden;
+        margin-left: 25%;
+        margin-right: 25%;
+        margin-bottom: 5%; 
+        margin-top: 1%;
+        font-family: verdana;
+    }
+
 
 #spacer {
 	margin-left: 2%;

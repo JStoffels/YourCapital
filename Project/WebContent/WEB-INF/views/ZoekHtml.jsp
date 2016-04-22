@@ -48,8 +48,9 @@
 					<p style="font-size: 5px">&nbsp</p>
 			</div>
 		</div>
-		<input class="btn btn-lg btn-primary btn-block" type="submit"
-			value="Zoek">
+		<input class="btn btn-lg btn-primary btn-block" type="submit" value="Zoek">
+			<p></p>
+		<a href="http://10.2.22.50/Project/carousel"><input class="btn btn-lg btn-primary btn-block" action="/Project/carousel" value="Carousel"></a>
 		</form:form>
 
 		<hr>
@@ -65,7 +66,7 @@
 								<div id="spacer2">
 									<p>
 										<a id="black"
-											href="<c:url value="/kandidaat/${kandidaat.id}"/>">
+											href="<c:url value="/zoekkandidaat/${kandidaat.id}"/>">
 									</p>
 									<img class="crt" align="left"
 										style="margin-right: 2%; border-style: inset; border-width: 2px; border-color: black; width: 80px; height: 80px; border-radius: 15px; background-color: white;"
@@ -77,7 +78,7 @@
 											${kandidaat.woonplaats}</strong>
 									</div>
 									<p style="font-size: 15px">&nbsp</p>
-									<a href="<c:url value="/kandidaat/${kandidaat.id}"/>">
+									<a href="<c:url value="/zoekkandidaat/${kandidaat.id}"/>">
 										<div class="right">
 											<input id="lineHeight"
 												class="btn btn-lg btn-primary btn-block" value="View">
@@ -91,7 +92,7 @@
 				<div id="maakVenster3">
 					<div id="spacer2">
 						<p>
-							<a id="black" href="<c:url value="/kandidaat/${kandidaat.id}"/>">
+							<a id="black" href="<c:url value="/zoekkandidaat/${kandidaat.id}"/>">
 						</p>
 						<img class="crt" align="left"
 							style="margin-right: 2%; border-style: inset; border-width: 2px; border-color: black; width: 80px; height: 80px; border-radius: 15px; background-color: white;"
@@ -103,7 +104,7 @@
 								${kandidaat.woonplaats}</strong>
 						</div>
 						<p style="font-size: 15px">&nbsp</p>
-						<a href="<c:url value="/kandidaat/${kandidaat.id}"/>">
+						<a href="<c:url value="/zoekkandidaat/${kandidaat.id}"/>">
 							<div class="right">
 								<input id="lineHeight" class="btn btn-lg btn-primary btn-block"
 									value="View">
@@ -118,7 +119,7 @@
 			<div id="maakVenster3">
 				<div id="spacer2">
 					<p>
-						<a id="black" href="<c:url value="/kandidaat/${kandidaat.id}"/>">
+						<a id="black" href="<c:url value="/zoekkandidaat/${kandidaat.id}"/>">
 					</p>
 					<img class="crt" align="left"
 						style="margin-right: 2%; border-style: inset; border-width: 2px; border-color: black; width: 80px; height: 80px; border-radius: 15px; background-color: white;"
@@ -130,7 +131,7 @@
 							${kandidaat.woonplaats}</strong>
 					</div>
 					<p style="font-size: 15px">&nbsp</p>
-					<a href="<c:url value="/kandidaat/${kandidaat.id}"/>">
+					<a href="<c:url value="/zoekkandidaat/${kandidaat.id}"/>">
 						<div class="right">
 							<input id="lineHeight" class="btn btn-lg btn-primary btn-block"
 								value="View">
