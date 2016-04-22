@@ -76,14 +76,20 @@
 			<div id="spacer">
 				<c:forEach items="${kandidaten}" var="kandidaat">
 					<div id="maakVenster3">
+					
+                                    
 						<div id="spacer2">
+						
+						<a href="<c:url value="/delete/${kandidaat.id}"/>">                       
+                    <img class="crt" align="right" style=" display:block; position:relative; margin-top:1%; margin-right: -3%; border-style: solid; 
+                    border-width: 2px; border-color: black; width:30px;height:30px;border-radius:15px;"src="resources/img/close.jpg"/>
 							<p>
 								<a id="black" href="<c:url value="/kandidaat/${kandidaat.id}"/>">
 							</p>
 							<img class="crt" align="left"
 								style="margin-right: 2%; border-style: inset; border-width: 2px; border-color: black; width: 80px; height: 80px; border-radius: 15px; background-color: white;"
 								src="${kandidaat.foto}" />
-							<div id="relative" align="left">
+							<div id="relative" align="left" style="pointer-events:none;">
 
 								<strong>${kandidaat.naam}</strong></a><br> <strong>Leeftijd:
 									${kandidaat.leeftijd} jaar</strong><br> <strong>Woonplaats:

@@ -70,7 +70,7 @@
 									<img class="crt" align="left"
 										style="margin-right: 2%; border-style: inset; border-width: 2px; border-color: black; width: 80px; height: 80px; border-radius: 15px; background-color: white;"
 										src="${kandidaat.foto}" />
-									<div id="relative" align="left">
+									<div id="relative" align="left" style="pointer-events:none;">
 
 										<strong>Naam: ${kandidaat.naam}</strong></a> <br> <strong>Leeftijd:
 											${kandidaat.leeftijd}</strong> <br> <strong>Woonplaats:
@@ -96,7 +96,7 @@
 						<img class="crt" align="left"
 							style="margin-right: 2%; border-style: inset; border-width: 2px; border-color: black; width: 80px; height: 80px; border-radius: 15px; background-color: white;"
 							src="${kandidaat.foto}" />
-						<div id="relative">
+						<div id="relative" align="left" style="pointer-events:none;">
 
 							<strong>Naam: ${kandidaat.naam}</strong></a> <br> <strong>Leeftijd:
 								${kandidaat.leeftijd}</strong> <br> <strong>Woonplaats:
@@ -123,7 +123,7 @@
 					<img class="crt" align="left"
 						style="margin-right: 2%; border-style: inset; border-width: 2px; border-color: black; width: 80px; height: 80px; border-radius: 15px; background-color: white;"
 						src="${kandidaat.foto}" />
-					<div id="relative">
+					<div id="relative" align="left" style="pointer-events:none;">
 
 						<strong>Naam: ${kandidaat.naam}</strong></a> <br> <strong>Leeftijd:
 							${kandidaat.leeftijd}</strong> <br> <strong>Woonplaats:

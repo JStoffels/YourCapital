@@ -23,6 +23,43 @@ public class Kandidaat {
 	private List<Skill> skills;
 	private String woonplaats;
 	private String foto;
+	private String geslacht;
+	private String quote;
+	
+	public String getGeslacht() {
+		return geslacht;
+	}
+
+	public void setGeslacht(String geslacht) {
+		this.geslacht = geslacht;
+	}
+
+	public String getQuote() {
+		return quote;
+	}
+
+	public void setQuote(String quote) {
+		this.quote = quote;
+	}
+
+	public String getMaxreisafstand() {
+		return maxreisafstand;
+	}
+
+	public void setMaxreisafstand(String maxreisafstand) {
+		this.maxreisafstand = maxreisafstand;
+	}
+
+	public String getOpmerkingen() {
+		return opmerkingen;
+	}
+
+	public void setOpmerkingen(String opmerkingen) {
+		this.opmerkingen = opmerkingen;
+	}
+
+	private String maxreisafstand;
+	private String opmerkingen;
 
 	// Entity related
 	private Long id;
