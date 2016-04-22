@@ -25,7 +25,16 @@ public class Kandidaat {
 	private String foto;
 	private String geslacht;
 	private String quote;
+	private String notes;
 	
+	public String getNotes() {
+		return notes;
+	}
+
+	public void setNotes(String notes) {
+		this.notes = notes;
+	}
+
 	public String getGeslacht() {
 		return geslacht;
 	}
