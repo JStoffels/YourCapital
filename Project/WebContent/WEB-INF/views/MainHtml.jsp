@@ -75,6 +75,8 @@
 	    border-width: 2px;
 	    background-color:#B6BFC2;
 	    overflow:hidden;
+	    
+	    
 	}
 	#maakVenster3{
 		border-style: solid;
@@ -84,9 +86,10 @@
 	    position: relative;
 		float: left;
 	   	width: 300px;
-	   	margin-left:2%;
+	   	margin-left:4.5%;
 	   	margin-top:2%;
 	   	margin-bottom:1%;
+	   	
 	   	
 	}
 	#maakVenster3.a{
@@ -182,7 +185,7 @@
 			 	<a href="http://10.2.22.50/Project/carousel"><form class="btn btn-lg btn-primary btn-block" id="right" action="/Project/carousel">Carousel</form></a>
 				
 				<h2>Huidige Kandidaten</h2>
-				<div id="maakVenster2">
+				<div align="center" id="maakVenster2">
 					<div id="spacer">
 						<c:forEach items="${kandidaten}" var="kandidaat">	
 							<div id="maakVenster3">
