@@ -9,15 +9,14 @@
 <head>
 
 <link rel="stylesheet" href="resources/css/stylemain.css" />
-<script src="resources/js/jsmain.js" ></script>
+<script src="resources/js/jsmain.js"></script>
 
 <title>YourCapital Home Page</title>
 </head>
 <body>
 	<div class="container">
 		<p align="center">
-			<img
-				src="http://vamers.com/wp-content/uploads/2013/08/Vamers-Games-LEGO-Marvel-Super-Heroes-Banner.jpg" />
+			<img src="http://10.2.22.50/Project/resources/img/Banner.jpg" />
 		</p>
 
 		<h2>Kandidaat toevoegen</h2>
@@ -86,9 +85,9 @@
 								src="${kandidaat.foto}" />
 							<div id="relative" align="left">
 
-								<strong>${kandidaat.naam}</strong></a> <br>
-								<strong>Leeftijd: ${kandidaat.leeftijd} jaar</strong> <br>
-								<strong>Woonplaats: ${kandidaat.woonplaats}</strong>
+								<strong>${kandidaat.naam}</strong></a><br> <strong>Leeftijd:
+									${kandidaat.leeftijd} jaar</strong><br> <strong>Woonplaats:
+									${kandidaat.woonplaats}</strong>
 							</div>
 							<p style="font-size: 15px">&nbsp</p>
 							<a href="<c:url value="/delete/${kandidaat.id}"/>">
