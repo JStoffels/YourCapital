@@ -132,10 +132,10 @@ public class KandidaatController {
 		return "redirect:/kandidaat/{id}";
 	}
 	
-	@RequestMapping(value = "/editnaamkandidaat/{id}", method = RequestMethod.GET)
+	/*@RequestMapping(value = "/editnaamkandidaat/{id}", method = RequestMethod.GET)
 	public String editNaam(@PathVariable long id, Model model, String naam) {
 		KandidaatDao.editNaam(naam, id);
 		return "redirect:/kandidaat/{id}";
 	}
-	
+	*/
 }

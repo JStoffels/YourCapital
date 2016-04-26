@@ -18,7 +18,6 @@ public class SkillDao {
 		t.begin();
 		Kandidaat k = em.find(Kandidaat.class, id);
 		k.getSkills().add(s);
-		// s.getKandidaten().add(k);
 		em.persist(s);
 		em.persist(k);
 		t.commit();
@@ -40,7 +39,6 @@ public class SkillDao {
 			System.out.println("addSkill(): kandidaat of skill bestaat niet!!");
 			return;
 		}
-		// k.getSkills().add(s);
 		s.getKandidaten().add(k);
 		em.persist(k);
 		t.commit();
@@ -52,9 +50,6 @@ public class SkillDao {
 		EntityManager em = emf.createEntityManager();
 		EntityTransaction t = em.getTransaction();
 		t.begin();
-		// List<Skill> s = em.createQuery("SELECT Skill from Kandidaat where
-		// kandidaat_id=:id", Skill.class).getResultList();
-		// List<Skill> s = Skill.(em.find(Kandidaat.class, id));
 		Kandidaat k = em.find(Kandidaat.class, id);
 		List<Skill> s = k.getSkills();
 		t.commit();

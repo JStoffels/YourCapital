@@ -39,7 +39,7 @@
 					</div>
 					<div class="form-group">
 						<form:label path="woonplaats">
-							<p>Woonplaats:</p>
+							<p>Plaats:</p>
 						</form:label>
 						<form:input class="form-control" placeholder="woonplaats"
 							maxlength="25" path="woonplaats" value="" />

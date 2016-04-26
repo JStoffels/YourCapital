@@ -61,7 +61,7 @@ public class KandidaatDao {
 		return k;
 	}
 	
-	public static Kandidaat editNaam(String naam, Long id){
+	/*public static Kandidaat editNaam(String naam, Long id){
 		EntityManager em = emf.createEntityManager();
 		EntityTransaction t = em.getTransaction();
 		t.begin();
@@ -70,7 +70,7 @@ public class KandidaatDao {
 		t.commit();
 		em.close();
 		return k;
-	}
+	}*/
 	
 	
 }

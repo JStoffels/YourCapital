@@ -80,9 +80,9 @@
 								src="${kandidaat.foto}" />
 							<div id="relative" align="left" style="pointer-events:none;">
 
-								<strong>${kandidaat.naam}</strong></a><br> <strong>Leeftijd:
-									${kandidaat.leeftijd} jaar</strong><br> <strong>Woonplaats:
-									${kandidaat.woonplaats}</strong>
+								<strong>${kandidaat.naam}</strong></a><br> 
+								<strong>Leeftijd: ${kandidaat.leeftijd} jaar</strong><br> 
+								<strong>Plaats:	${kandidaat.woonplaats}</strong>
 							</div>
 							<p style="font-size: 15px">&nbsp</p>
 							<a href="<c:url value="/kandidaat/${kandidaat.id}"/>">

@@ -33,25 +33,18 @@
 			<p>Notes: ${kandidaat.notes}</p>
 			<p><strong>Skills: </strong>
 				<c:forEach items="${skills}" var="skill">
-					<li><a href="<c:url value="/deleteskill/${skill.id}/${kandidaat.id}"/>">
-						<input type="submit" value="Delete"></a>"${skill.naam}" 
-					</li>
+					<p>
+					<a href="<c:url value="/deleteskill/${skill.id}/${kandidaat.id}"/>"><img class="crt" style="display:inline-block; position:relative; margin-left:1%; border-style: solid; 
+                    border-width: 2px; border-color: black; width:20px;height:20px;border-radius:15px;"src="/Project/resources/img/close.jpg"/> </a>"${skill.naam}"
+						
+					
+					
+					
+					
 					<p>
 				</c:forEach>
-				
+			
 					<form:form id="form" method="post" modelAttribute="kandidaat">
-					<form:label path="naam">
-
-					</form:label>
-					
-					<form:input path="naam" placeholder="naam" value="" onFocus="value=''" />
-						<a href="<c:url value="/editnaamkandidaat/${kandidaat.id}"/>"><input type="submit" value="Edit"></a>
-						
-					<p></p>
-					
-				</form:form>
-
-				<form:form id="form" method="post" modelAttribute="kandidaat">
 					<form:label path="naam">
 
 					</form:label>
@@ -69,6 +62,6 @@
 	</div>
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script src="resources/bootstrap/js/bootstrap.min.js"></script>
+	<script src="/Project/resources/bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>
