@@ -8,19 +8,17 @@
 <html>
 <head>
 
-<link rel="stylesheet" href="resources/css/stylemain.css" />
+<link rel="stylesheet" href="/Project/resources/css/stylemain.css" />
 <script src="resources/js/jsmain.js"></script>
 
-<title>YourCapital Home Page</title>
+<title>YourCapital Admin Page</title>
 </head>
 <body>
 	<div class="container">
 		<p align="center">
-			<img src="http://10.2.22.50/Project/resources/img/Banner.jpg" />
+			<img src="resources/img/Banner.jpg" />
 		</p>
-
 		<h2>Kandidaat toevoegen</h2>
-
 		<p></p>
 		<div id="maakVenster">
 			<div id="spacer">
@@ -49,37 +47,28 @@
 						<form:input class="form-control" path="woonplaats"
 							placeholder="woonplaats" autocomplete="off" value=""
 							maxlength="25" required="required" />
-
 					</div>
 					<p></p>
-
 					<p style="font-size: 5px">&nbsp</p>
 			</div>
 		</div>
 
 		<input class="btn btn-lg btn-primary btn-block" type="submit"
 			value="Toevoegen">
-
 		</form:form>
-
 		<hr>
 		<p></p>
-		<a href="http://10.2.22.50/Project/zoek"><form
-				class="btn btn-lg btn-primary btn-block" id="right"
-				action="/Project/zoek">Zoekpagina</form></a> <a
-			href="http://10.2.22.50/Project/carousel"><form
-				class="btn btn-lg btn-primary btn-block" id="right"
-				action="/Project/carousel">Carousel</form></a>
-
+		<div>
+		<a href="/Project/carousel">
+		<form class="btn btn-lg btn-primary btn-block" id="right" action="/Project/carousel">Carousel</form></a>
+		</div>
+		<p></p>
 		<h2>Huidige Kandidaten</h2>
 		<div align="center" id="maakVenster2">
 			<div id="spacer">
 				<c:forEach items="${kandidaten}" var="kandidaat">
-					<div id="maakVenster3">
-					
-                                    
-						<div id="spacer2">
-						
+					<div id="maakVenster3">                                    
+						<div id="spacer2">						
 						<a href="<c:url value="/delete/${kandidaat.id}"/>">                       
                     <img class="crt" align="right" style=" display:block; position:relative; margin-top:1%; margin-right: -3%; border-style: solid; 
                     border-width: 2px; border-color: black; width:30px;height:30px;border-radius:15px;"src="resources/img/close.jpg"/>
@@ -108,8 +97,7 @@
 			</c:forEach>
 		</div>
 	</div>
-	<p>Last update: 21 april 2016</p>
-
+	<p>Last update: 25 april 2016</p>
 	</div>
 </body>
 </html>

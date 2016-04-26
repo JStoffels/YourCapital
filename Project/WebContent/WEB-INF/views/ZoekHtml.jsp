@@ -14,7 +14,7 @@
 <body>
 	<div class="container">
 		<p align="center">
-			<img src="http://10.2.22.50/Project/resources/img/Banner.jpg" />
+			<img src="/Project/resources/img/Banner.jpg" />
 		</p>
 
 		<h2>Zoekscherm...</h2>
@@ -50,7 +50,7 @@
 		</div>
 		<input class="btn btn-lg btn-primary btn-block" type="submit" value="Zoek">
 			<p></p>
-		<a href="http://10.2.22.50/Project/carousel"><input class="btn btn-lg btn-primary btn-block" action="/Project/carousel" value="Carousel"></a>
+		<a href="/Project/carousel"><input class="btn btn-lg btn-primary btn-block" action="/Project/carousel" value="Carousel"></a>
 		</form:form>
 
 		<hr>
@@ -61,7 +61,7 @@
 				<form:form>
 					<c:forEach items="${kandidaten}" var="kandidaat">
 
-						<c:if test="${namen == kandidaat.naam}">
+						<c:if test="${kandidaat.naam.equalsIgnoreCase(namen)}">
 							<div id="maakVenster3">
 								<div id="spacer2">
 									<p>
@@ -115,7 +115,7 @@
 				</div>
 		</div>
 		</c:if>
-		<c:if test="${woonplaats == kandidaat.woonplaats}">
+		<c:if test="${kandidaat.woonplaats.equalsIgnoreCase(woonplaats)}">
 			<div id="maakVenster3">
 				<div id="spacer2">
 					<p>
@@ -149,7 +149,7 @@
 	</div>
 
 
-	<p>last update: 21 april</p>
+	<p>last update: 25 april</p>
 	</div>
 </body>
 </html>

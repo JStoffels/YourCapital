@@ -14,19 +14,16 @@
 	</head>
 	<body>
 	<div class="container"> 
-	<p align="center"><img src="http://10.2.22.50/Project/resources/img/Banner.jpg" /></p>
+	<p align="center"><img src="/Project/resources/img/Banner.jpg" /></p>
 	
 	
-	<a href="http://10.2.22.50/Project/zoek"><form class="btn btn-lg btn-primary btn-block" action="/Project/zoek">Zoekpagina</form></a>
+	<a href="/Project/zoek"><form class="btn btn-lg btn-primary btn-block" action="/Project/zoek">Zoekpagina</form></a>
 	<p></p>
-	<a href="http://10.2.22.50/Project/carousel"><form class="btn btn-lg btn-primary btn-block" action="/Project/carousel">Carousel</form></a>	
+	<a href="/Project/carousel"><form class="btn btn-lg btn-primary btn-block" action="/Project/carousel">Carousel</form></a>	
 	<p></p>
-	<div id="maakVenster2">
-	
 	<img id="left" style="margin-left:2%; margin-right:2%; margin-top:1%" src="${kandidaat.foto}" height="350px">
-	
-	<p></p>
-	
+	<div id="maakVenster2">
+	<div style="margin-left: 3%;">
 			<h1>Kandidaat: ${kandidaat.naam}</h1>
 			<p>Leeftijd: ${kandidaat.leeftijd}</p>
 			<p>Geslacht: ${kandidaat.geslacht}</p>
@@ -46,6 +43,7 @@
 			</form:form>
 		<p></p>
 		<p></p>
+		</div>
 		</div>
 		</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

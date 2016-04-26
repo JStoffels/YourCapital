@@ -27,6 +27,11 @@ public class KandidaatController {
 		model.addAttribute("kandidaten", KandidaatDao.all());
 		return "MainHtml";
 	}
+	
+	@RequestMapping("/main")
+	public String mainMvc() {
+		return "main";
+	}
 
 	@RequestMapping("/carousel")
 	public String carousel(Model model, String naam, String leeftijd, String woonplaats, String foto) {
@@ -40,7 +45,7 @@ public class KandidaatController {
 
 	@RequestMapping(value = "/home", method = RequestMethod.POST)
 	public String create(Model model, String naam, String leeftijd, String woonplaats, String foto) {
-		foto = "http://10.2.22.50/Project/resources/img/" + ((int)(1 + (Math.random() * (63 - 1)))) + ".jpg";
+		foto = "/Project/resources/img/" + ((int)(1 + (Math.random() * (63 - 1)))) + ".jpg";
 		KandidaatDao.create(naam, leeftijd, woonplaats, foto);
 		return "redirect:/home";
 	}
@@ -121,9 +126,16 @@ public class KandidaatController {
 	}
 
 	@RequestMapping(value = "/kandidaat/{id}", method = RequestMethod.POST)
-	public String createSkill(@PathVariable long id, Model model, String naam) {
+	public String createSkill(@PathVariable long id, String naam) {
 		Skill s = SkillDao.create(naam, id);
 		SkillDao.addSkill(id, s.getId());
 		return "redirect:/kandidaat/{id}";
 	}
+	
+	@RequestMapping(value = "/editnaamkandidaat/{id}", method = RequestMethod.GET)
+	public String editNaam(@PathVariable long id, Model model, String naam) {
+		KandidaatDao.editNaam(naam, id);
+		return "redirect:/kandidaat/{id}";
+	}
+	
 }

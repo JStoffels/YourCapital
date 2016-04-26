@@ -43,8 +43,6 @@ public class KandidaatDao {
 		EntityTransaction t = em.getTransaction();
 		t.begin();
 		Kandidaat k = em.find(Kandidaat.class, id);
-		//k.setSkills(null);
-		//em.persist(k);
 		if(k != null){
 			em.remove( k );
 		}
@@ -62,4 +60,17 @@ public class KandidaatDao {
 		em.close();
 		return k;
 	}
+	
+	public static Kandidaat editNaam(String naam, Long id){
+		EntityManager em = emf.createEntityManager();
+		EntityTransaction t = em.getTransaction();
+		t.begin();
+		Kandidaat k = em.find(Kandidaat.class, id);
+		k.setNaam(naam);
+		t.commit();
+		em.close();
+		return k;
+	}
+	
+	
 }

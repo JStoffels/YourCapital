@@ -9,25 +9,20 @@
 <head>
 <link rel="stylesheet" href="/Project/resources/css/stylemain.css" />
 <script src="/Project/resources/js/jsmain.js"></script>
-
 <title>YourCapital DetailPagina</title>
 </head>
 <body>
 	<div class="container">
-		<p align="center">
-			<img src="http://10.2.22.50/Project/resources/img/Banner.jpg" />
-		</p>
+		<p align="center"><img src="/Project/resources/img/Banner.jpg" /></p>
 
-		<a href="http://10.2.22.50/Project/zoek"><form class="btn btn-lg btn-primary btn-block" action="/Project/zoek">Zoekpagina</form></a>
+		<a href="/Project/home"><form class="btn btn-lg btn-primary btn-block" action="/Project/home">Admin pagina</form></a>
 		<p></p>
-		<a href="http://10.2.22.50/Project/carousel"><form class="btn btn-lg btn-primary btn-block" action="/Project/carousel">Carousel</form></a>
+		<a href="/Project/carousel"><form class="btn btn-lg btn-primary btn-block" action="/Project/carousel">Carousel</form></a>
 		<p></p>
+		
+		<img id="left" style="margin-left:2%; margin-right:2%; margin-top:1%" src="${kandidaat.foto}" height="350px">
 		<div id="maakVenster2">
-
-			<img id="left" style="margin-left:2%; margin-right:2%; margin-top:1%" src="${kandidaat.foto}" height="350px">
-
-			<p></p>
-
+		<div style="margin-left: 3%;">
 			<h1>Kandidaat: ${kandidaat.naam}</h1>
 			<p>Leeftijd: ${kandidaat.leeftijd}</p>
 			<p>Geslacht: ${kandidaat.geslacht}</p>
@@ -38,25 +33,38 @@
 			<p>Notes: ${kandidaat.notes}</p>
 			<p><strong>Skills: </strong>
 				<c:forEach items="${skills}" var="skill">
-					<li>"${skill.naam}" <a
-						href="<c:url value="/deleteskill/${skill.id}/${kandidaat.id}"/>">
-							<input type="submit" value="Delete">
-					</a></li>
+					<li><a href="<c:url value="/deleteskill/${skill.id}/${kandidaat.id}"/>">
+						<input type="submit" value="Delete"></a>"${skill.naam}" 
+					</li>
 					<p>
 				</c:forEach>
+				
+					<form:form id="form" method="post" modelAttribute="kandidaat">
+					<form:label path="naam">
+
+					</form:label>
+					
+					<form:input path="naam" placeholder="naam" value="" onFocus="value=''" />
+						<a href="<c:url value="/editnaamkandidaat/${kandidaat.id}"/>"><input type="submit" value="Edit"></a>
+						
+					<p></p>
+					
+				</form:form>
 
 				<form:form id="form" method="post" modelAttribute="kandidaat">
 					<form:label path="naam">
 
 					</form:label>
-					<form:input path="naam" value="Voeg vaardigheid toe..."
-						onFocus="value=''" />
+					
+					<form:input path="naam" placeholder="vaardigheid" value="" autofocus="autofocus" onFocus="value=''" />
 
 					<p></p>
 					<input type="submit" value="Voeg toe">
 				</form:form>
+									
 			<p></p>
 			<p></p>
+		</div>
 		</div>
 	</div>
 	<script
